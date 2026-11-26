@@ -9,3 +9,7 @@ Each stage was produced iteratively, with context scoping and custom skills to m
 2. `structure/plan.md` — phased implementation plan
 3. `structure/plan_backend.md` — backend architecture, constraints, and implementation steps
 4. `structure/plan_frontend.md` — frontend architecture, constraints, and implementation steps
+-------------------------------------------------------------------
+Steps:
+1) project.md with project description, stack, entities, API contract
+2) Ask Claude to create plan.md, plan_backend.md and plan_frontend.md
