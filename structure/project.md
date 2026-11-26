@@ -3,14 +3,23 @@ NAME: pcshop
 
 DESCRIPTION:
     PET-project — інтернет-магазин комп'ютерної техніки (ПК, ноутбуки, монітори, периферія).
-    Мета — продемонструвати навички full-stack розробки та роботу з Claude Code (вайбкодинг).
+    Мета — продемонструвати навички full-stack розробки та AI-driven розробку з Claude Code.
 
     Стек: React + TypeScript на фронтенді, Node.js + Fastify на бекенді, PostgreSQL як БД.
-    Фронтенд покриває сучасні інструменти тестування, включаючи screenshot-тести (Playwright).
+    Фронтенд підтримує три взаємозамінні візуальні теми (premium, gaming, professional),
+    реалізовані через семантичні CSS custom properties та TailwindCSS без дублювання бізнес-логіки.
     Проект включає observability: структуровані логи, трейсинг, метрики (Prometheus + Grafana).
-    Також демонструє якість фронтенду та вміння створювати гарний UI.
-    
-    
+    Фронтенд покриває сучасні інструменти тестування, включаючи screenshot-тести (Playwright).
+    Також демонструє якість UI та AI-driven методологію розробки.
+
+    Методологія: Specification-Driven Development з Context Engineering:
+    — Специфікація та дизайн затверджуються до написання коду (Human-in-the-loop approval)
+    — AI генерує дизайн (Google Stitch), компоненти та тести за специфікацією
+    — Context Engineering: CLAUDE.md + кастомні Skills мінімізують витрати токенів
+    — Multi-Agent Workflows: Designer → Developer → Reviewer → QA агенти
+    — AI-assisted visual validation через Playwright MCP
+
+
 STACK:
 
   FRONTEND:
@@ -19,13 +28,14 @@ STACK:
     - Vite (build tool)
     - React Router v6 (routing)
     - TailwindCSS (styling)
-    - Zustand (state management)
+    - CSS Custom Properties (semantic design tokens for multi-theme support)
+    - Zustand (state management — cart, UI state, active theme)
     - TanStack Query / React Query (server state & data fetching)
     - Axios (HTTP client)
 
   TESTING (Frontend):
     - Vitest + React Testing Library (unit/integration tests)
-    - Playwright (e2e + screenshot/visual regression tests)
+    - Playwright (e2e + visual regression tests)
 
   BACKEND:
     - Node.js
@@ -41,8 +51,42 @@ STACK:
     - OpenTelemetry (tracing)
     - Prometheus + Grafana (metrics & dashboards)
 
+  AI_TOOLING:
+    - Claude Code (AI coding assistant)
+    - Google Stitch (AI UI/UX design generation)
+    - Playwright MCP (browser automation for AI-assisted visual validation)
+    - Custom Claude Code Skills (Frontend Design, Design System, React Component, Visual Review, Implement Page)
+    - Specialized AI Subagents (UI Designer, Design System Architect, Frontend Architect,
+                                Frontend Developer, Visual Reviewer, QA Engineer, Code Reviewer)
+
   INFRASTRUCTURE:
     - Docker + Docker Compose
+
+
+THEMES:
+
+  premium (Premium Minimalism):
+    Palette:    neutral, warm, light
+    Style:      generous whitespace, large product photography, elegant typography
+    Motion:     subtle, reserved
+
+  gaming (Gaming & Technology):
+    Palette:    dark background, purple + cyan accents, gradients + glow effects
+    Style:      futuristic, expressive product presentation, dynamic typography
+    Motion:     energetic, expressive
+
+  professional (Modern Technology Store)  [DEFAULT]:
+    Palette:    light surfaces, blue + graphite accents
+    Style:      information-rich product cards, efficient navigation, balanced density
+    Motion:     minimal, purposeful
+
+  Shared constraints (all themes):
+    - Responsive: desktop (1440px), tablet (768px), mobile (390px)
+    - Semantic token layers: color, typography, spacing, border, shadow, density, animation
+    - ThemeSwitcher component — selection persisted in localStorage (Zustand themeStore)
+    - Theme switching preserves cart, filters, navigation state
+    - Theme switching does not trigger API requests
+    - Accessibility + prefers-reduced-motion support
 
 
 STRUCTURE:
@@ -53,18 +97,20 @@ STRUCTURE:
   │   ├── src/
   │   │   ├── assets/                  # зображення, шрифти, іконки
   │   │   ├── components/              # переиспользувані UI-компоненти
-  │   │   │   └── ui/                  # базові: Button, Input, Card...
+  │   │   │   └── ui/                  # базові: Button, Input, Card, ThemeSwitcher...
   │   │   ├── pages/                   # сторінки (роути)
   │   │   ├── hooks/                   # кастомні React-хуки
   │   │   ├── services/                # API-клієнти (axios)
-  │   │   ├── store/                   # Zustand stores
+  │   │   ├── store/                   # Zustand stores (cart, ui, theme)
+  │   │   ├── themes/                  # CSS token maps per theme + TypeScript theme types
   │   │   ├── types/                   # локальні TS-типи (+ імпорт з shared/)
   │   │   ├── utils/                   # допоміжні функції
   │   │   ├── App.tsx
   │   │   └── main.tsx
   │   ├── tests/
   │   │   ├── unit/                    # Vitest + React Testing Library
-  │   │   └── e2e/                     # Playwright (screenshot tests)
+  │   │   └── e2e/                     # Playwright (visual regression + e2e)
+  │   │       └── screenshots/         # baseline (3 themes × 4 pages × 3 viewports)
   │   ├── public/
   │   ├── index.html
   │   ├── vite.config.ts
@@ -74,19 +120,18 @@ STRUCTURE:
   │   ├── Dockerfile
   │   └── package.json
   │
-  ├── backend/                         # Fastify + Prisma + TypeScript
+  ├── backend/                         # Fastify + Prisma + TypeScript  [COMPLETE]
   │   ├── src/
   │   │   ├── routes/                  # Fastify route handlers
   │   │   ├── controllers/             # бізнес-логіка запитів
-  │   │   ├── services/                # сервісний шар (БД, зовнішні API)
-  │   │   ├── plugins/                 # Fastify plugins (auth, cors, otel...)
-  │   │   ├── types/                   # локальні TS-типи (+ імпорт з shared/)
+  │   │   ├── services/                # сервісний шар
+  │   │   ├── plugins/                 # Fastify plugins (prisma, metrics, otel)
+  │   │   ├── errors/
   │   │   ├── utils/
   │   │   └── server.ts                # точка входу
   │   ├── prisma/
   │   │   ├── schema.prisma            # схема БД
   │   │   └── migrations/
-  │   ├── tests/
   │   ├── Dockerfile
   │   ├── tsconfig.json
   │   └── package.json
@@ -107,12 +152,14 @@ STRUCTURE:
   │       │   └── dashboards/
   │       └── dashboards/
   │
-  ├── docker/                          # Dockerfiles (або лежать у сервісах)
-  │   ├── frontend.Dockerfile          # якщо не тримати у frontend/
-  │   └── backend.Dockerfile
-  │
   ├── structure/                       # документація проекту
-  │   └── project.md
+  │   ├── project.md                   # цей файл — опис проекту, стек, контракт
+  │   ├── plan.md                      # фазовий план + implementation roadmap
+  │   ├── plan_backend.md              # бекенд архітектура та кроки реалізації
+  │   ├── plan_frontend.md             # фронтенд архітектура + multi-theme система
+  │   ├── plan_design.md               # дизайн-процес (AI генерація + апрув)
+  │   ├── plan_ai_workflow.md          # AI workflow: skills, agents, orchestration
+  │   └── plan_frontend_testing.md     # стратегія тестування фронтенду
   │
   ├── docker-compose.yaml              # prod/staging: всі сервіси
   ├── docker-compose.dev.yaml          # dev: hot-reload + volume mounts
