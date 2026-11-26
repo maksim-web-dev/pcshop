@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ParameterType {
+  STRING
+  NUMBER
+  BOOLEAN
+  ENUM
+}
+
+model ProductType {
+  id        String   @id @default(uuid())
+  name      String
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  categories Category[]
+  products   Product[]
+}
+
+model Category {
+  id            String   @id @default(uuid())
+  name          String
+  slug          String   @unique
+  productTypeId String
+  createdAt     DateTime @default(now())
+
+  productType ProductType         @relation(fields: [productTypeId], references: [id])
+  parameters  CategoryParameter[]
+  products    Product[]
+}
+
+model CategoryParameter {
+  id         String        @id @default(uuid())
+  categoryId String
+  name       String
+  key        String
+  unit       String?
+  type       ParameterType
+  options    String[]
+  sortOrder  Int
+
+  category Category           @relation(fields: [categoryId], references: [id])
+  products ProductParameter[]
+
+  @@unique([categoryId, key])
+}
+
+model Product {
+  id            String   @id @default(uuid())
+  name          String
+  slug          String   @unique
+  description   String?
+  price         Decimal  @db.Decimal(10, 2)
+  stock         Int
+  imageUrls     String[]
+  productTypeId String
+  categoryId    String
+  isActive      Boolean  @default(true)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  productType ProductType        @relation(fields: [productTypeId], references: [id])
+  category    Category           @relation(fields: [categoryId], references: [id])
+  parameters  ProductParameter[]
+}
+
+model ProductParameter {
+  id                  String @id @default(uuid())
+  productId           String
+  categoryParameterId String
+  value               String
+
+  product           Product           @relation(fields: [productId], references: [id])
+  categoryParameter CategoryParameter @relation(fields: [categoryParameterId], references: [id])
+
+  @@unique([productId, categoryParameterId])
+}
