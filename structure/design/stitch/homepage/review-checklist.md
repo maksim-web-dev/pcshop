@@ -2,7 +2,12 @@
 
 Use this checklist to evaluate each generated Google Stitch design concept before approving it for implementation.
 
-Score each dimension from 1 to 5 using the rubric below. Record notes alongside each score. A design must achieve ≥ 3 on all dimensions to be approved for implementation.
+Score each dimension from 1 to 5 using the rubric below. Record notes alongside each score.
+
+**Approval thresholds:**
+- Visual quality dimensions (1–8, 10–13): minimum score **4** to proceed to implementation
+- Accessibility direction (dimension 9): minimum score **3** (measurable WCAG compliance requires implementation-time testing, not design evaluation)
+- A score of 3 on any visual quality dimension requires documented revision before implementation
 
 ---
 
@@ -275,11 +280,13 @@ Legend: **P** = Pass, **F** = Fail
 
 After scoring all dimensions, record the decision:
 
-| Theme | Total score | Min dimension score | Decision |
-|-------|-------------|--------------------:|---------|
-| Premium | / 65 | | ☐ Approved ☐ Revise ☐ Regenerate |
-| Gaming | / 65 | | ☐ Approved ☐ Revise ☐ Regenerate |
-| Professional | / 65 | | ☐ Approved ☐ Revise ☐ Regenerate |
+| Theme | Total score | Min visual score (dim 1–8, 10–13) | Accessibility score (dim 9) | Decision |
+|-------|-------------|:---------------------------------:|:---------------------------:|---------|
+| Premium | / 65 | | | ☐ Approved ☐ Revise ☐ Regenerate |
+| Gaming | / 65 | | | ☐ Approved ☐ Revise ☐ Regenerate |
+| Professional | / 65 | | | ☐ Approved ☐ Revise ☐ Regenerate |
+
+**Approval:** Visual quality ≥ 4 on all dimensions 1–8, 10–13. Accessibility ≥ 3 on dimension 9. Accessibility compliance requires implementation-time testing — do not claim WCAG conformance based on generated mockup alone.
 
 **Overall decision:** ☐ Proceed to implementation · ☐ Revise and re-review · ☐ Regenerate all
 

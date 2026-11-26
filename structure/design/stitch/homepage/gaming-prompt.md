@@ -53,7 +53,7 @@ Gamers, PC builders, hardware enthusiasts. They are performance-driven and decis
 - Background: `#0A0A0F` (near-black) with 1px bottom border `#1E1E2E`
 - On scroll: `rgba(10,10,15,0.9)` background with `backdrop-filter: blur(12px)`
 - Left: PCShop wordmark in Rajdhani Bold — geometric, angular, with subtle purple or cyan accent mark
-- Center: navigation links in Inter 14px 500 — "Laptops", "PCs", "Monitors", "Peripherals", "Deals"
+- Center: navigation links in Inter 14px 500 — "Laptops", "PCs", "Monitors", "Peripherals"
   - Navigation link color: `#A0A0C0`
   - Active/hover: `#22D3EE` (cyan) with 2px cyan underline
 - Right: search icon, cart icon with count badge in `#8B5CF6` (purple), ThemeSwitcher
@@ -91,7 +91,7 @@ Gamers, PC builders, hardware enthusiasts. They are performance-driven and decis
 **Footer:**
 - Background: `#070708` (slightly darker than page — deepest dark)
 - Top: 1px gradient line from purple to cyan (decorative accent)
-- 4-column layout: Shop, Account, Information, Contact
+- 4-column layout: Shop, Browse, Information, Contact
 - Headings: `#A0A0C0` in Inter 14px 500
 - Links: `#60607A` hover `#22D3EE` (cyan)
 - Bottom bar: copyright in Inter 12px `#60607A`
@@ -175,13 +175,19 @@ Each card:
 - 2 badges: `rgba(139,92,246,0.1)` bg, `#22D3EE` text — e.g. "RTX 4070", "32 GB RAM"
 - "Add to Cart" button: full-width, purple gradient, always visible, 40px height
 
-**Mock products:**
-1. VORTEX Gaming Laptop 15" — $1,799 — badges: "RTX 4070", "32 GB DDR5"
-2. PHANTOM PC Tower — $2,499 — badges: "i9-14900K", "64 GB RAM"
-3. NEXUS Monitor 32" 240Hz — $799 — badges: "240 Hz", "QHD"
-4. STRIKER Keyboard PRO — $229 — badges: "Cherry MX", "RGB"
+**Mock products (shared dataset — identical across all three themes):**
+
+Show all 6 products in the grid. The 4-column layout accommodates the full catalogue with high density.
+
+1. APEX Gaming Laptop 15" — $1,799 — badges: "RTX 4070", "32 GB DDR5"
+2. NOVA Ultrabook 14" — $1,199 — badges: "16 GB RAM", "512 GB SSD"
+3. TITAN PC Tower — $2,499 — badges: "RTX 4080", "64 GB DDR5"
+4. NEXUS Monitor 32" — $799 — badges: "240 Hz", "QHD"
+5. STRIKER Keyboard PRO — $229 — badges: "Cherry MX", "Wireless"
+6. SWIFT Mouse Pro — $89 — badges: "25600 DPI", "Wireless"
 
 No star ratings, no "Best Seller" labels.
+Prices are fixed single values — no "from $X" variable pricing.
 
 ---
 
@@ -212,7 +218,7 @@ The header is a **fixed, always-visible dark bar** at the top.
 
 Logo: "PCShop" in Rajdhani Bold — `#F0F0FF` wordmark with a small geometric cyan or purple accent element (optional: a sharp angular mark before the wordmark).
 
-Navigation center: Laptops | PCs | Monitors | Peripherals | Deals
+Navigation center: Laptops | PCs | Monitors | Peripherals
 In Inter 14px 500, `#A0A0C0`. Hover: `#22D3EE` (cyan) + 2px underline animation.
 
 Right side:
@@ -238,8 +244,8 @@ Top of footer: 1px gradient line (purple `#8B5CF6` → cyan `#22D3EE`) — the o
 
 4-column layout:
 - Shop: Laptops, PCs, Monitors, Keyboards, Mice
-- Account: Sign In, My Orders
-- Information: About, Delivery, Returns, Privacy Policy
+- Browse: Gaming Laptops, Ultrabooks, Desktop PCs, All Products
+- Information: About, Privacy Policy
 - Contact: email, social media icon links
 
 Headings: Inter 14px 500, `#A0A0C0`

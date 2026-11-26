@@ -50,7 +50,7 @@ Practical shoppers and IT professionals. They want to compare specifications, fi
 - On scroll: adds `box-shadow: 0 2px 8px rgba(0,0,0,0.08)` (no background change)
 - Left: PCShop wordmark in Inter Bold — clean, without decorative marks; blue `#2563EB` accent color on the wordmark or a simple geometric mark
 - Center: search input — Inter 14px, `#E5E7EB` border, 6px radius, magnifier icon inside the input field, 300px wide, placeholder "Search products..."
-- Navigation below or alongside: "Laptops", "PCs", "Monitors", "Peripherals", "Deals"
+- Navigation below or alongside: "Laptops", "PCs", "Monitors", "Peripherals"
   - Navigation link color: `#374151`
   - Active/hover: `#2563EB` with 2px blue underline
 - Right: cart icon (line style) with count badge in `#2563EB`, ThemeSwitcher
@@ -60,8 +60,7 @@ Practical shoppers and IT professionals. They want to compare specifications, fi
 - Full-width, background `#FFFFFF` or very light blue tint `#EFF6FF`
 - Left 45%: headline in Inter 40px 700, `#111827`, sentence case (not all-caps), 4–8 words; subheadline Inter 16px `#4B5563`, 1–2 lines, practical benefit-focused; primary CTA button `#2563EB` fill, white text, Inter 15px 600, 6px radius, 48px height; optional ghost button (secondary CTA with `#2563EB` border and text) below primary
 - Right 55%: a large, clean product photograph (laptop or monitor) on white/light gray background — well-lit, no dramatic shadows, catalog-quality photograph
-- Optional: a horizontal trust row below hero — small icons + text: "Free Shipping on Orders $49+", "2-Year Warranty", "30-Day Returns" in Inter 12px `#4B5563`
-- No carousel, no animated elements, no gradient backgrounds
+- No carousel, no animated elements, no gradient backgrounds, no promotional promise banners
 
 **Featured Categories (light gray section):**
 - Section background: `#F3F4F6` (light gray, visually separates from white hero)
@@ -86,7 +85,7 @@ Practical shoppers and IT professionals. They want to compare specifications, fi
 
 **Footer:**
 - Background: `#111827` (dark, clear visual separation from page)
-- 4-column layout: Shop, Account, Information, Contact
+- 4-column layout: Shop, Browse, Information, Contact
 - Section headings: Inter 14px 500, `#FFFFFF`
 - Links: Inter 12px, `#9CA3AF`, hover `#FFFFFF`
 - Bottom bar: slightly darker `#1F2937` strip, copyright + policy links in Inter 12px `#6B7280`
@@ -159,7 +158,6 @@ Hero should feel like a confident product launch from a reliable electronics ret
 - Primary CTA: "Shop Now" in `#2563EB` button
 - Secondary CTA: "Browse All Products" ghost button
 - Featured product: a slim laptop photographed on a white/light gray studio background, well-lit, no RGB or dramatic lighting
-- Trust row: "Free Shipping $49+" | "2-Year Warranty" | "30-Day Returns"
 
 ---
 
@@ -176,15 +174,19 @@ Each card:
 - Optional: green dot + "In stock" or amber "Low stock (3 left)" below badges
 - "Add to Cart" button: full-width, `#2563EB` background, white text, always visible, 40px height
 
-**Mock products:**
-1. ProBook Laptop 15" — $1,299 — badges: "16 GB RAM", "512 GB SSD", "Intel i7"
-2. WorkStation Tower — $1,899 — badges: "RTX 3060", "32 GB RAM"
-3. UltraView Monitor 27" — $549 — badges: "4K UHD", "USB-C"
-4. MechType Keyboard — $189 — badges: "Cherry MX", "Wireless"
-5. PrecisionMouse Pro — $89 — badges: "16000 DPI", "USB-C"
-6. QuietStream Headset — $129 — badges: "Noise Cancel", "USB"
+**Mock products (shared dataset — identical across all three themes):**
+
+Show all 6 products in the grid. The professional theme shows 3 badges for laptops and PCs to reflect the information-dense character of this theme.
+
+1. APEX Gaming Laptop 15" — $1,799 — badges: "RTX 4070", "32 GB DDR5", "Intel i7"
+2. NOVA Ultrabook 14" — $1,199 — badges: "16 GB RAM", "512 GB SSD", "Intel i5"
+3. TITAN PC Tower — $2,499 — badges: "RTX 4080", "64 GB DDR5"
+4. NEXUS Monitor 32" — $799 — badges: "240 Hz", "QHD"
+5. STRIKER Keyboard PRO — $229 — badges: "Cherry MX", "Wireless"
+6. SWIFT Mouse Pro — $89 — badges: "25600 DPI", "Wireless"
 
 No star ratings, no "Best Seller" labels, no discount badges.
+Prices are fixed single values — no "from $X" variable pricing.
 
 ---
 
@@ -216,7 +218,7 @@ The header is a **fixed, always-visible light bar** at the top. No dark areas in
 
 Logo: "PCShop" in Inter Bold — `#111827` wordmark, possibly with a small blue `#2563EB` geometric accent element. Clean and trustworthy, not stylized.
 
-Navigation: Laptops | PCs | Monitors | Peripherals | Deals
+Navigation: Laptops | PCs | Monitors | Peripherals
 In Inter 14px 500, `#374151`. Hover: `#2563EB` with 2px underline.
 
 Center of header: a **visible search input** — this is a key differentiator from the premium and gaming themes. The search input is always visible on desktop, not hidden behind an icon.
@@ -243,9 +245,9 @@ Background: `#111827`
 
 4-column layout:
 - Shop: Laptops, PCs, Monitors, Keyboards, Mice
-- Account: Sign In, My Orders, Wishlist
-- Information: About, Delivery, Returns, Privacy Policy
-- Contact: email, phone, social media icon links
+- Browse: Gaming Laptops, Ultrabooks, Desktop PCs, All Products
+- Information: About, Privacy Policy
+- Contact: email, social media icon links
 
 Section headings: Inter 14px 500, `#FFFFFF`
 Links: Inter 12px, `#9CA3AF`, hover `#FFFFFF`
@@ -271,7 +273,7 @@ Bottom bar: `#1F2937` background, copyright + policy links in Inter 12px `#6B728
 
 **REF-PR04 (PCPartPicker):** Reference for left filter sidebar accordion pattern, result count display ("Showing X of Y"), sort controls above the grid, and information-dense product listing. The filter sidebar is a key pattern for the professional catalog page — apply the structural logic, not the visual styling.
 
-**REF-PR06 (Amazon):** Reference for established e-commerce homepage conventions: trust indicators row, clean white hero, category navigation grid, and product card grid with consistent image dimensions. Amazon's layout demonstrates proven commercial patterns — take the structural logic, not the visual density overload or promotional clutter.
+**REF-PR06 (Amazon):** Reference for established e-commerce homepage conventions: clean white hero, category navigation grid, and product card grid with consistent image dimensions. Amazon's layout demonstrates proven commercial patterns — take the structural logic (hero proportion, category grid, product grid) not the visual density overload, promotional clutter, or trust indicator banners (shipping/returns promises are not in PCShop's scope).
 
 ---
 

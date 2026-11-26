@@ -153,11 +153,12 @@ After generating all three concepts, evaluate them using `homepage/review-checkl
 
 The review checklist includes a 1–5 scoring rubric for 13 dimensions. Score each theme independently before comparing.
 
-**Minimum acceptable score:** 3 out of 5 on all dimensions to proceed to implementation.
+**Minimum acceptable score:** 4 out of 5 on all visual quality dimensions (1–8, 10–13); 3 out of 5 on accessibility direction (dimension 9).
 
 **Decision outcomes:**
-- Score ≥ 3 on all dimensions: approved for implementation with noted refinements
-- Score = 2 on any dimension: revision required before implementation
+- Score ≥ 4 on all visual quality dimensions: approved for implementation with noted refinements
+- Score = 3 on any visual quality dimension: revision required before implementation
+- Score = 2 on any dimension: significant revision or regeneration required
 - Score = 1 on any dimension: regenerate with revised prompt
 
 Record review scores and notes in a `review-notes.md` file in each theme output directory.

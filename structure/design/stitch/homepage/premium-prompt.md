@@ -79,7 +79,7 @@ Design-conscious technology buyers. They value quality signals: generous whitesp
 
 **Footer (dark):**
 - Background: `#1A1A1A`
-- 4-column layout: Shop, Account, Information, Contact
+- 4-column layout: Shop, Browse, Information, Contact
 - Text in DM Sans 12px, muted warm gray
 - Section headings in DM Sans 14px 500, `#FAFAF8`
 - No decorative elements, no illustrations — pure typographic footer
@@ -157,13 +157,17 @@ Each card in the Top Products section shows:
 - 2 parameter badges in warm gray pill (`#F4F3F0` bg, `#5C5C5C` text, 2px radius)
 - "Add to Cart" text button or minimal rectangular button, `#1A1A1A` background, visible at rest
 
-**Mock products to show (use representative names):**
-1. Laptop Pro 15" — from $1,299 — badges: "16 GB RAM", "512 GB SSD"
-2. UltraBook Air 13" — from $899 — badges: "8 GB RAM", "256 GB SSD"
-3. Studio Monitor 27" — from $649 — badges: "4K UHD", "USB-C"
-4. Mechanical Keyboard — from $189 — badges: "Cherry MX", "Wireless"
+**Mock products (shared dataset — identical across all three themes):**
+
+Show 4 products from the following list in the grid. The editorial layout of this theme favours fewer, larger cards over maximum density.
+
+1. APEX Gaming Laptop 15" — $1,799 — badges: "RTX 4070", "32 GB DDR5"
+2. NOVA Ultrabook 14" — $1,199 — badges: "16 GB RAM", "512 GB SSD"
+3. TITAN PC Tower — $2,499 — badges: "RTX 4080", "64 GB DDR5"
+4. NEXUS Monitor 32" — $799 — badges: "240 Hz", "QHD"
 
 Do not show star ratings, reviews, discount badges, or "Best Seller" labels.
+Do not show "from $X" variable pricing — prices are fixed single values.
 
 ---
 
@@ -192,7 +196,7 @@ The header is a **fixed navigation bar** at the top of the page, 72px tall.
 
 Logo: "PCShop" wordmark in Playfair Display — left-aligned, `#1A1A1A`. Understated and typographic.
 
-Navigation links (centered or left-of-center): Laptops | PCs | Monitors | Peripherals | Sale
+Navigation links (centered or left-of-center): Laptops | PCs | Monitors | Peripherals
 Links in DM Sans 14px, `#5C5C5C`. On hover: `#1A1A1A` with 2px underline.
 
 Right side of header:
@@ -221,9 +225,9 @@ A clean, dark typographic footer. No decorative elements.
 Background: `#1A1A1A`
 4-column desktop layout:
 - Column 1 "Shop": Laptops, PCs, Monitors, Keyboards, Mice
-- Column 2 "Account": Sign In, My Orders, Wishlist
-- Column 3 "Information": About, Delivery, Returns, Privacy Policy
-- Column 4 "Contact": Email, Phone, Social media links (icons only)
+- Column 2 "Browse": Gaming Laptops, Ultrabooks, Desktop PCs, All Products
+- Column 3 "Information": About, Privacy Policy
+- Column 4 "Contact": Email, Social media links (icons only)
 
 Section headings: DM Sans 14px 500, `#FAFAF8`
 Links: DM Sans 12px, `#9E9E9E`, hover `#FAFAF8`

@@ -13,8 +13,9 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Task 1.2 | prompt02 | Define visual requirements for three themes | **Reviewed — minor findings addressed** |
 | Task 1.3 | prompt03 | Collect visual references and prepare moodboards | **Awaiting reference collection** |
 | Task 1.3.1 | prompt05 | Playwright MCP integration + visual reference screenshot collection | **Awaiting human review** |
-| Task 1.4.1 | prompt06 | Prepare Google Stitch HomePage generation (3 prompts + review checklist + usage guide) | **Completed — pending human design generation** |
-| Task 1.4.2 | — | Manual Google Stitch generation (run by human) | **Pending** |
+| Task 1.4.1 | prompt06 | Prepare Google Stitch HomePage generation (3 prompts + review checklist + usage guide) | **Completed** |
+| Task 1.4.1 (rev) | prompt07 | Stitch prompt corrections: shared mock data, scope cleanup, review criteria update | **Completed** |
+| Task 1.4.2 | — | Manual Google Stitch generation (run by human) | **Pending — prompts ready** |
 
 ### Task 1.2 — Review Findings Addressed (in Task 1.3)
 
@@ -33,8 +34,8 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Step | Description | Status |
 |------|-------------|--------|
 | Step 1 | Define visual requirements for all three themes | **Reviewed — minor findings addressed** |
-| Step 2 | Collect visual references (moodboards) | **Partially complete** (15/24 usable refs; 9 usable for Stitch; human review required) |
-| Step 3 | Generate HomePage concepts via Google Stitch | **Prompts prepared** (3 prompts ready; human generation required) |
+| Step 2 | Collect visual references (moodboards) | **Accepted as sufficient** (9 verified refs; original 24-ref target not met; shortlist accepted for initial generation) |
+| Step 3 | Generate HomePage concepts via Google Stitch | **Prompts ready** (3 corrected prompts; shared mock data; scope validated; human generation required) |
 | Step 4 | Generate CatalogPage concepts | Pending |
 | Step 5 | Generate ProductPage concepts | Pending |
 | Step 6 | Define NotFoundPage design *(Google Stitch optional for this step)* | Pending |
