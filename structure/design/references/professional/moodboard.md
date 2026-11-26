@@ -1,12 +1,10 @@
 # Moodboard — Modern Technology Store (`professional`)
 
-> **Collection status: INCOMPLETE — manual screenshot collection required.**
-> Web research tools were unavailable during this task. All entries below are
-> **unverified candidates** based on general brand knowledge. No URLs have been visited,
-> no observations have been made from current pages, and no screenshots have been captured.
->
-> A human researcher must complete the manual collection checklist before these references
-> can be used in Google Stitch prompts.
+> **Collection status: PARTIALLY VERIFIED — 2026-11-26**
+> Screenshots captured via Playwright Firefox (headless), viewport 1440×900.
+> 8/8 URLs visited; 4/8 usable or partially usable; 2/8 blocked (Cloudflare);
+> 2/8 show 404 or unrelated content.
+> See individual entries for verification status and observations.
 
 ---
 
@@ -31,141 +29,175 @@ A product catalog, filter panel, or product detail page that demonstrates:
 
 ## Candidate References
 
-> All entries: **Verification status: Unverified candidate**
-> Do not use in design prompts until verified and screenshot captured.
-
 ---
 
 ### REF-PR01 — Best Buy Canada — product catalog
-- **Source:** Best Buy Co. Inc. (Canadian site avoids US-specific promotions)
-- **Candidate URL:** `https://www.bestbuy.ca/en-ca/category/laptops/36461` *(verify — category URLs may change)*
-- **Relevant page/component:** Category catalog; filter panel; product card grid
-- **Known design characteristics (general brand knowledge):**
-  - Light gray page background with white product cards
-  - Blue accent for CTAs and navigation
-  - Left filter sidebar with checkbox filters
-  - Product cards: image top, name, price, rating, add-to-cart visible
-  - Breadcrumb navigation
-  - Sort controls above grid
-- **Principles worth adopting:** Filter sidebar layout; product card information structure; breadcrumb navigation; sort control placement
-- **Elements not to copy:** Specific Best Buy yellow branding; promotional banner treatment; loyalty program elements
-- **Relevance:** Very high — closest reference for desired catalog experience
-- **Screenshot path:** *(not yet captured)*
-- **Access date:** *(not yet visited)*
+- **Source:** Best Buy Co. Inc. (Canadian site)
+- **Candidate URL:** `https://www.bestbuy.ca/en-ca/category/laptops/36461`
+- **Final URL after redirect:** `https://www.bestbuy.ca/en-ca/category/laptops/36461`
+- **Verification status:** Partial — 404 page captured
+- **Screenshot path:** `screenshots/ref-PR01-bestbuy-canada-laptops.png`
+- **Access date:** 2026-11-26
+- **Actual visual observations:**
+  - 404 "Page not found" — URL structure may have changed
+  - Best Buy Canada header visible: solid royal blue (`#0046BE` approx), white Best Buy logo centered
+  - Clean sans-serif "Page not found." heading in black on white background
+  - Navigation link "home page" in Best Buy blue
+  - Overall: demonstrates Best Buy's clean blue-and-white brand identity even in error state
+- **Principles worth adopting:** Blue accent for navigation and links on white background; clean error state messaging
+- **Elements not to copy:** Best Buy yellow brand stripe; Best Buy-specific promotions
+- **Relevance:** Very low — catalog not captured. URL needs updating.
+- **Recommendation for Stitch:** Do not use. Update URL to current Best Buy Canada laptop category.
 
 ---
 
 ### REF-PR02 — B&H Photo Video — product catalog
 - **Source:** B&H Photo Video Pro Audio
-- **Candidate URL:** `https://www.bhphotovideo.com/c/browse/Laptops/ci/9039` *(verify)*
-- **Relevant page/component:** Product catalog with technical spec filtering; filter panel
-- **Known design characteristics (general brand knowledge):**
-  - Dense but organized product listing
-  - Extensive filter options (many technical parameters)
-  - Clean product cards with key specs
-  - Very information-rich — trusted reference for technical product browsing
-- **Principles worth adopting:** Technical parameter filter structure; spec-first product card; breadcrumb
-- **Elements not to copy:** Specific B&H visual density level (intentionally higher than PCShop target); B&H color scheme; list-only catalog view
-- **Relevance:** Very high for filter panel structure — especially relevant because PCShop has `params.key=value` filtering like B&H
-- **Screenshot path:** *(not yet captured)*
+- **Candidate URL:** `https://www.bhphotovideo.com/c/browse/Laptops/ci/9039`
+- **Final URL after redirect:** `https://www.bhphotovideo.com/c/browse/Laptops/ci/9039`
+- **Verification status:** Blocked — Cloudflare bot protection
+- **Screenshot path:** `screenshots/ref-PR02-bh-photo-laptops.png`
+- **Access date:** 2026-11-26
+- **Actual visual observations:**
+  - Cloudflare "Performing security verification" page — full bot protection challenge
+  - Content not accessible via headless browser
+- **Principles worth adopting:** None observable
+- **Relevance:** Inaccessible via headless browser
+- **Recommendation for Stitch:** Remove from reference set. Requires manual human capture via regular browser.
 
 ---
 
-### REF-PR03 — Newegg — laptop or components catalog
+### REF-PR03 — Newegg — laptop catalog
 - **Source:** Newegg Commerce Inc.
-- **Candidate URL:** `https://www.newegg.com/Laptops-Notebooks/SubCategory/ID-32` *(verify)*
-- **Relevant page/component:** Product catalog; product card; filter sidebar; sort
-- **Known design characteristics (general brand knowledge):**
-  - Light background, blue accent
-  - Dense product cards with many specifications visible
-  - Extensive left filter sidebar
-  - Grid/list view toggle
-  - Detailed pricing (base price, shipping, promotions)
-- **Principles worth adopting:** Grid/list toggle pattern; dense spec display in product cards; filter sidebar with many options
-- **Elements not to copy:** Excessive promotional badges; Newegg egg branding; promotional pricing complexity
-- **Relevance:** High for catalog UX patterns; moderate for visual quality (Newegg's visual design is functional but not polished)
-- **Screenshot path:** *(not yet captured)*
+- **Candidate URL:** `https://www.newegg.com/Laptops-Notebooks/SubCategory/ID-32`
+- **Final URL after redirect:** `https://www.newegg.com/Laptops-Notebooks/SubCategory/ID-32`
+- **Verification status:** Verified — full catalog page visible
+- **Screenshot path:** `screenshots/ref-PR03-newegg-laptops.png`
+- **Access date:** 2026-11-26
+- **Actual visual observations:**
+  - Cookie banner at very bottom (non-intrusive)
+  - Page header: Newegg logo + search bar + utility nav
+  - Breadcrumb visible: "Home > Computer Systems > Laptops / Notebooks" with "ALL LAPTOP" current page label
+  - Promotional banner strip: Google Chromebook Plus advertisement (non-Newegg product)
+  - Filter area: "SHOP BY PROCESSOR NAME" section — horizontal chip filters for Intel/AMD generations
+  - Filter chip examples: "AMD Ryzen AI", "Intel Core Ultra 5", "Intel Core 15th Gen", "Intel Core 12th Gen"
+  - Sort/filter bar: horizontal layout above product grid — standard e-commerce pattern
+  - Page background: white/light gray
+  - Overall: functional, information-dense catalog — standard e-commerce conventions clearly implemented
+- **Principles worth adopting:** Breadcrumb navigation above catalog; processor-based horizontal filter chips as quick filters; promotional banner in designated strip (not full-page); clear page background contrast between filter area and product grid
+- **Elements not to copy:** Newegg's visual density level (higher than PCShop target); promotional ad injection in catalog; Newegg egg branding
+- **Relevance:** High for catalog conventions and filter chip pattern; moderate for visual quality
+- **Recommendation for Stitch:** Use for filter chip/horizontal quick-filter pattern and breadcrumb placement
 
 ---
 
 ### REF-PR04 — PCPartPicker — component listings
 - **Source:** PCPartPicker LLC
-- **Candidate URL:** `https://pcpartpicker.com/products/cpu/` *(verify)*
-- **Relevant page/component:** Product listing with technical specifications; sort by specs
-- **Known design characteristics (general brand knowledge):**
-  - Extremely information-dense product tables
-  - Clean, functional typography (no decorative elements)
-  - Filtering by many technical parameters
-  - Very high trust among PC builders — credibility through information density
-- **Principles worth adopting:** Parameter display pattern for technical hardware; spec filtering UX; credibility through information
-- **Elements not to copy:** Table-only display (PCShop uses grid cards, not pure tables); PCPartPicker-specific build-wizard UI
-- **Relevance:** Moderate for reference of "how much spec information is too much" — PCShop targets a balance point between PCPartPicker density and minimal
-- **Screenshot path:** *(not yet captured)*
+- **Candidate URL:** `https://pcpartpicker.com/products/cpu/`
+- **Final URL after redirect:** `https://pcpartpicker.com/products/cpu/`
+- **Verification status:** Verified — filter structure fully visible (product data error, not design error)
+- **Screenshot path:** `screenshots/ref-PR04-pcpartpicker-cpu.png`
+- **Access date:** 2026-11-26
+- **Actual visual observations:**
+  - Cookie banner at very bottom (non-intrusive)
+  - Navigation bar: dark (`#1A1A1A` approx) background with white text — "Builder", "Products", "Guides", "Completed Builds", "Trends", "Benchmarks", "Forums"
+  - Page header: "Choose A CPU" — clean centered H1 on a slate/indigo-tinted hero strip
+  - LEFT SIDEBAR: "Part List" widget showing current build state (0 parts, $0.00, 0W)
+  - Filter sidebar sections: "Merchants / Pricing", "PRICING OPTIONS" (Include mail-in rebates checkbox), "Filters", "PRICE" (range slider $0–$2999)
+  - Filter sidebar style: white card on light gray background, clean accordion sections with + controls
+  - Product area: "Error Fetching Products — Permission denied" (Cloudflare blocked product data, not site design)
+  - Column headers visible: Name, Core Count, Performance Core Clock, Performance Core Boost Clock, Microarchitecture, TDP, Integrated Graphics, Rating, Price
+  - Column sort controls: chevron icons beside each column header
+  - Blue accent: "Add From Filter" button, blue link text, "Log in" link
+  - Overall: very clean, functional table layout with comprehensive filter controls
+- **Principles worth adopting:** Left sidebar filter structure with expandable sections; price range slider; sortable column headers in table/list view; blue accent for primary actions; build wizard side panel concept (applicable for cart/comparison in PCShop)
+- **Elements not to copy:** Table-only display (PCShop uses grid cards, not pure tables); build wizard UI (PCShop is a standard store); PCPartPicker-specific "compatibility filter" UX
+- **Relevance:** Very high for filter sidebar structure — directly applicable because PCShop has `params.key=value` filtering like PCPartPicker
+- **Recommendation for Stitch:** Reference for filter sidebar accordion structure and price range slider placement
 
 ---
 
 ### REF-PR05 — Micro Center — product catalog
 - **Source:** Micro Center (Micro Electronics Inc.)
-- **Candidate URL:** `https://www.microcenter.com/category/4294966998/laptops` *(verify)*
-- **Relevant page/component:** Product catalog; product card
-- **Known design characteristics (general brand knowledge):**
-  - Standard e-commerce catalog layout
-  - Light backgrounds, standard navigation
-  - Product cards with image, name, price, in-store/online availability
-  - Filter sidebar
-- **Principles worth adopting:** Availability indicator pattern; standard catalog conventions for hardware retail
-- **Elements not to copy:** Any Micro Center branding; regional store-specific elements
-- **Relevance:** Moderate — useful as a baseline for "standard e-commerce conventions" we want to match and slightly exceed in quality
-- **Screenshot path:** *(not yet captured)*
+- **Candidate URL:** `https://www.microcenter.com/category/4294966998/laptops`
+- **Final URL after redirect:** `https://www.microcenter.com/category/4294966998/laptops`
+- **Verification status:** Blocked — Cloudflare bot protection ("Sorry, you have been blocked")
+- **Screenshot path:** `screenshots/ref-PR05-microcenter-laptops.png`
+- **Access date:** 2026-11-26
+- **Actual visual observations:**
+  - Full Cloudflare block page — "You are unable to access microcenter.com"
+  - Standard block explanation + Ray ID
+  - Content not accessible via headless browser
+- **Principles worth adopting:** None observable
+- **Relevance:** Inaccessible via headless browser
+- **Recommendation for Stitch:** Remove from reference set. Requires manual human capture.
 
 ---
 
 ### REF-PR06 — Amazon (electronics category — laptops)
 - **Source:** Amazon.com Inc.
-- **Candidate URL:** `https://www.amazon.com/s?k=laptops` *(verify — may require region handling)*
-- **Relevant page/component:** Product card; filter sidebar; sorting; pagination
-- **Known design characteristics (general brand knowledge):**
-  - White cards on light gray background
-  - Product name, price, rating, prime badge on cards
-  - Extensive filter sidebar on left
-  - Sort above grid
-  - "Add to Cart" / "Buy Now" on cards or card hover
-- **Principles worth adopting:** Filter sidebar conventions that users already know; pagination patterns; sort placement
-- **Elements not to copy:** Amazon orange accent; excessive badge system; promotional complexity; Amazon-specific widgets
-- **Relevance:** Moderate — useful for understanding user mental models for catalog UX (most users are already familiar with this pattern)
-- **Screenshot path:** *(not yet captured)*
+- **Candidate URL:** `https://www.amazon.com/s?k=laptops&rh=n%3A565108`
+- **Final URL after redirect:** `https://www.amazon.com/s?k=laptops&rh=n%3A565108`
+- **Verification status:** Verified — full product listing visible
+- **Screenshot path:** `screenshots/ref-PR06-amazon-laptops.png`
+- **Access date:** 2026-11-26
+- **Actual visual observations:**
+  - LEFT FILTER SIDEBAR: visible — Brands (Acer, ASUS, HP, Samsung, Razer, Apple, Dell, Alienware, MSI, Lenovo), Screen Size filters, Operating System, Customer Reviews
+  - Product listings: list-view format visible with 3 products:
+    - ASUS ROG Strix G14 (2026) — image left, full spec text, price visible, star rating
+    - HP 14 Laptop — image left, specs, storage comparison note ("565MBps vs past results")
+    - Acer Aspire — image left, specs with Windows/Office bundle note
+  - White background page, standard Amazon orange accent for star ratings and Prime badge
+  - Sort options visible top-right: "Sort by: Featured"
+  - Products show: image + name + brief specs + price (or "See options") + star rating
+  - Price visibility: partially obscured for some items ("See options" button instead of price)
+- **Principles worth adopting:** Left filter sidebar with brand/spec filters; product listing information hierarchy (image + name + specs + rating + price); sort control top-right above listing
+- **Elements not to copy:** Amazon orange accent; Amazon-specific widgets (Prime badge, "Ships to Bulgaria", Subscribe & Save); "See options" hiding price (dark pattern)
+- **Relevance:** High for user mental model reference — most users are already familiar with this catalog pattern; filter sidebar layout is widely understood
+- **Recommendation for Stitch:** Reference for filter sidebar position and product listing information hierarchy; explicitly request price always visible (not behind "see options")
 
 ---
 
 ### REF-PR07 — Coolblue (European electronics retailer)
 - **Source:** Coolblue B.V.
-- **Candidate URL:** `https://www.coolblue.nl/en/laptops` *(Dutch site with English option — verify)*
-- **Relevant page/component:** Product catalog; product card; filter panel
-- **Known design characteristics (general brand knowledge):**
-  - Clean, modern e-commerce design — light surfaces, blue accent
-  - Well-organized product cards with clear spec summaries
-  - Good filter UX with active filter chips
-  - High design quality relative to typical electronics retail
-- **Principles worth adopting:** Modern electronics retail design quality; active filter chips pattern; spec summary in product card
-- **Elements not to copy:** Coolblue blue exact shade; brand-specific elements; Dutch/European market specifics
-- **Relevance:** Very high — Coolblue represents the target quality level for the professional theme: clean, organized, modern retail
-- **Screenshot path:** *(not yet captured)*
+- **Candidate URL:** `https://www.coolblue.nl/en/laptops`
+- **Final URL after redirect:** `https://www.coolblue.nl/en/laptops`
+- **Verification status:** Partial — cookie dialog (prominent) with product grid visible in background
+- **Screenshot path:** `screenshots/ref-PR07-coolblue-laptops.png`
+- **Access date:** 2026-11-26
+- **Actual visual observations:**
+  - Cookie dialog is prominent ("COOKIES. Duh, it's us.") — Coolblue brand personality humor
+  - Blue accent on cookie accept button: "Accepteer alles" in Coolblue's signature blue
+  - Navigation bar: Coolblue logo left, standard e-commerce nav visible
+  - Breadcrumb visible: "Laptops" active page
+  - Background product grid: clean laptop product cards visible (3-4 per row)
+  - Product images: standard laptop catalog photography on white/light background
+  - Page background: white/very light — clean professional look
+  - "Type laptop" section header visible — categorized browsing section
+  - Staff recommendation figure visible in sidebar (Coolblue "expert" feature)
+- **Principles worth adopting:** Clean product grid on white background; breadcrumb navigation; staff recommendation as trust element; playful but functional brand personality in cookie/consent copy
+- **Elements not to copy:** Coolblue blue exact shade; Dutch/Belgian market specifics; staff mascot/expert feature (requires backend support)
+- **Relevance:** Very high — Coolblue represents the target quality level for the professional theme; highest design quality among professional references
+- **Recommendation for Stitch:** Partial reference — describes clean product grid quality and breadcrumb placement; manually capture full view without dialog for best results
 
 ---
 
 ### REF-PR08 — Apple Store (Mac accessories / peripherals section)
 - **Source:** Apple Inc.
-- **Candidate URL:** `https://www.apple.com/shop/buy-mac/mac-accessories` *(verify)*
-- **Relevant page/component:** Accessories catalog; product cards; sort/filter
-- **Known design characteristics (general brand knowledge):**
-  - Clean grid of accessory cards
-  - White cards on light background
-  - Price always visible
-  - Minimal but functional filters
-- **Principles worth adopting:** Clean catalog conventions for technology accessories; professional quality without premium excess
-- **Elements not to copy:** Apple-specific product lineup presentation; SF Pro typeface
-- **Relevance:** Moderate — useful as reference for "professional yet clean" catalog distinct from Apple's full premium aesthetic
-- **Screenshot path:** *(not yet captured)*
+- **Candidate URL:** `https://www.apple.com/shop/buy-mac/mac-accessories`
+- **Final URL after redirect:** `https://www.apple.com/shop/buy-mac/mac-accessories`
+- **Verification status:** Partial — same 404 as REF-P01
+- **Screenshot path:** `screenshots/ref-PR08-apple-mac-accessories.png`
+- **Access date:** 2026-11-26
+- **Actual visual observations:**
+  - Same as P01: Apple 404 "The page you're looking for can't be found"
+  - Navigation bar observable (same as P01): clean horizontal nav, monochrome
+  - Footer: 5-column layout — "Shop and Learn", "Account", "Apple Store", "For Business", "Apple Values", "For Education", "For Healthcare", "About Apple" — with many sub-links
+  - Footer background: light gray `#F5F5F7` approx — clean footer contrast with page content
+- **Principles worth adopting (from footer):** Multi-column footer structure; Footer background color as subtle separation from page content
+- **Elements not to copy:** This is a 404 page — not a product catalog reference
+- **Relevance:** Very low — accessories catalog not captured. URL changed.
+- **Recommendation for Stitch:** Do not use. Update URL in next session.
 
 ---
 
@@ -173,28 +205,27 @@ A product catalog, filter panel, or product detail page that demonstrates:
 
 | Anti-pattern | Description | Why problematic |
 |--------------|-------------|----------------|
-| Outdated marketplace aesthetic | Yellow + blue + red "sale" banners everywhere; clip-art icons; heavy gradients | Looks untrustworthy; dates the product; conflicts with professional identity |
-| Excessive visual density | 8+ parameters visible per card in grid view; tiny text; no visual breathing room | Hard to scan; overwhelming for general audience |
-| Generic admin dashboard | Gray sidebar nav; data tables everywhere; enterprise SaaS styling | Wrong context — this is consumer e-commerce, not an admin panel |
-| Too many competing accents | Blue CTA + orange sale + green in-stock + yellow badge + red promo all visible simultaneously | No clear visual hierarchy; confusion about what to act on |
-| Hidden pricing | Price appearing only on hover, or requiring "see price in cart" | Dark pattern; users cannot compare without clicking through |
-| Overwhelming promotional density | Every product card has 3+ badge stickers | Looks low-quality and spammy |
+| Outdated marketplace aesthetic | Yellow + blue + red "sale" banners everywhere | Looks untrustworthy; dates the product |
+| Excessive visual density | 8+ parameters visible per card in grid view | Hard to scan; overwhelming |
+| Generic admin dashboard | Gray sidebar nav; data tables everywhere | Wrong context — consumer e-commerce |
+| Too many competing accents | Blue CTA + orange sale + green in-stock simultaneously | No clear visual hierarchy |
+| Hidden pricing | Price appearing only on hover, or "see price in cart" | Dark pattern |
+| Overwhelming promotional density | Every card has 3+ badge stickers | Looks low-quality and spammy |
 
 ---
 
-## Manual Collection Checklist
+## Verification Summary
 
-- [ ] REF-PR01: Visit Best Buy Canada laptop catalog → screenshot desktop + mobile + filter panel → update entry
-- [ ] REF-PR02: Visit B&H Photo laptop section → screenshot filter sidebar and product card → update entry
-- [ ] REF-PR03: Visit Newegg laptop catalog → screenshot catalog + filter sidebar → update entry
-- [ ] REF-PR04: Visit PCPartPicker CPU listings → screenshot spec table and filter → update entry
-- [ ] REF-PR05: Visit Micro Center laptop category → screenshot product cards → update entry
-- [ ] REF-PR06: Visit Amazon laptop search results → screenshot catalog layout → update entry
-- [ ] REF-PR07: Visit Coolblue laptop catalog (English) → screenshot desktop → update entry *(priority: highest quality reference)*
-- [ ] REF-PR08: Visit Apple accessories catalog → screenshot product cards → update entry
-- [ ] Review screenshots — identify best references for: (a) filter panel, (b) product card, (c) catalog header
-- [ ] Confirm at least 8 verified references before Google Stitch generation
-- [ ] Store screenshots in `references/professional/screenshots/ref-PR<NN>-<slug>.png`
-- [ ] Update each entry: `Verification status: Verified`, add screenshot path and access date
+| Reference | Status | Usefulness | Notes |
+|-----------|--------|------------|-------|
+| REF-PR01 | 404 page | Very low | URL changed — replace next session |
+| REF-PR02 | Cloudflare blocked | None | Requires manual human capture |
+| REF-PR03 | **Fully verified** | **High** — filter chips pattern | Small cookie banner |
+| REF-PR04 | **Verified** | **Very high** — filter sidebar | Product data blocked, design visible |
+| REF-PR05 | Cloudflare blocked | None | Requires manual human capture |
+| REF-PR06 | **Fully verified** | **High** — catalog conventions | Standard Amazon layout |
+| REF-PR07 | Cookie dialog | **High** (partial) | Product grid visible in background |
+| REF-PR08 | 404 page | Very low | URL changed — replace next session |
 
-**Target:** 8–12 verified references before Design Step 3 begins.
+**Verified count:** 3 fully + 1 substantial partial (PR07) = 4 usable references out of 8
+**Recommended for Stitch:** REF-PR03 (filter chips), REF-PR04 (filter sidebar), REF-PR06 (catalog layout), REF-PR07 (clean grid quality)

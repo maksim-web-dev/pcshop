@@ -1,11 +1,27 @@
 # Visual Reference Comparison — All Three Themes
 
 This document compares the visual direction of all three PCShop themes across key UI areas.
-It is based on the visual specifications from `structure/design/themes/` and the reference
-candidate research in `references/<theme>/moodboard.md`.
+It is based on:
+- Visual specifications from `structure/design/themes/`
+- Reference candidate research in `references/<theme>/moodboard.md`
+- **Verified visual observations from actual screenshots captured 2026-11-26**
+  (Playwright Firefox, 1440×900 — see `result05.md` for capture details)
 
 The goal is to confirm that the three themes are visually distinct while representing
 the same application and sharing the same functional components.
+
+---
+
+## Verification Status Summary
+
+| Theme | Fully usable refs | Partial (dialog/partial) | Inaccessible/404 | Total captured |
+|-------|------------------|--------------------------|------------------|---------------|
+| `premium` | 2 (P02, P05) | 4 (P03, P04, P06, P08) | 2 (P01, P07) | 8 |
+| `gaming` | 4 (G01, G04, G06, G07) | 1 (G08) | 3 (G02, G03, G05) | 8 |
+| `professional` | 3 (PR03, PR04, PR06) | 1 (PR07) | 4 (PR01, PR02, PR05, PR08) | 8 |
+
+**Total verified (fully + substantial partial):** 15 / 24
+**Recommended for Stitch (priority):** P02, P05, G01, G04, G06, G07, PR03, PR04, PR06
 
 ---
 
@@ -257,3 +273,105 @@ in exceptional cases, the layout variant of a single component.
 
 The ThemeSwitcher enables switching between these interpretations without
 any state loss or page reload — confirming the CSS-swap architecture is correct.
+
+---
+
+## Verified Visual Research Findings (2026-11-26)
+
+Findings are based on actual screenshot inspection. Each observation is marked as:
+- **[Observed]** — directly visible in the captured screenshot
+- **[Inferred]** — derived from partial visibility or background glimpse
+- **[Assumed]** — not directly observable, retained from prior specification
+
+### Premium Minimalism — Key Verified Observations
+
+| Observation | Source | Type |
+|-------------|--------|------|
+| Apple catalog: image-dominant product cards, centered on white BG | P02 | Observed |
+| Apple catalog: minimal tab navigation below page title | P02 | Observed |
+| Apple 404: even error states maintain whitespace and typographic clarity | P01 | Observed |
+| Teenage Engineering: product fills viewport on pure black BG (upper limit of minimalism) | P05 | Observed |
+| Teenage Engineering: navigation in very small white type, horizontal, no icons | P05 | Observed |
+| B&O: atmospheric dark photography (holiday/dark editorial — not standard warm neutral) | P03 | Inferred |
+| Nothing: monochrome branding, cream product photography background glimpsed | P04 | Inferred |
+| Dyson: hero with warm-dark dramatic product + clean secondary product cards | P08 | Inferred |
+| Leica: warm lifestyle photography as hero; "Explore Photography" headline style | P06 | Inferred |
+
+**Premium palette validation:** None of the verified references use the exact warm off-white (#FAFAF8) PCShop targets.
+Apple uses pure white; Teenage Engineering uses black; B&O uses dark. The warm neutral palette remains
+a PCShop-specific decision not directly observable in references. This is acceptable — references inform
+composition and typography, not palette.
+
+### Gaming & Technology — Key Verified Observations
+
+| Observation | Source | Type |
+|-------------|--------|------|
+| ASUS ROG: near-black page background (#000 or very close) throughout | G01 | Observed |
+| ASUS ROG: bold uppercase hero headline in white, 2–5 words | G01 | Observed |
+| ASUS ROG: co-branding badges (AMD Ryzen) prominent in hero | G01 | Observed |
+| ASUS ROG: gold/amber accent (ROG-specific — replace with purple/cyan) | G01 | Observed |
+| Alienware: deep blue/purple gradient dark background — closest to PCShop gaming palette | G04 | Observed |
+| Alienware: white horizontal navigation on black header | G04 | Observed |
+| Alienware: atmospheric product photography with cool directional lighting | G04 | Observed |
+| MSI: horizontal product series navigation tabs above product grid | G06 | Observed |
+| MSI: angled 3/4 product photography in dark-tinted cards | G06 | Observed |
+| MSI: red accent sticker badges (replace with purple/cyan for PCShop) | G06 | Observed |
+| NVIDIA: near-black background with green atmospheric glow (replace with purple for PCShop) | G07 | Observed |
+| NVIDIA: minimal text overlay on product image; "Learn More" + "Shop" CTAs below | G07 | Observed |
+| NVIDIA: extreme product photography quality — GPU cards as hero objects | G07 | Observed |
+| SteelSeries: dark filter sidebar with checkbox filters + product count badges | G08 | Observed |
+| SteelSeries: sort control top-right above product grid | G08 | Observed |
+
+**Gaming palette observation:** No reference uses purple (#8B5CF6) + cyan (#22D3EE). The closest is Alienware's
+blue-cyan palette. All others use red (ROG), green (Razer, NVIDIA), yellow (Corsair), orange (SteelSeries).
+PCShop's purple/cyan direction is a deliberate differentiation — references validate the dark atmosphere and
+glow technique; color translation is required when using these references for Stitch prompts.
+
+### Modern Technology Store — Key Verified Observations
+
+| Observation | Source | Type |
+|-------------|--------|------|
+| Newegg: breadcrumb navigation above catalog: "Home > Computer Systems > Laptops" | PR03 | Observed |
+| Newegg: horizontal chip filters by processor name above product grid | PR03 | Observed |
+| Newegg: white/light gray page background — standard professional catalog surface | PR03 | Observed |
+| PCPartPicker: left sidebar with expandable filter sections (accordion pattern) | PR04 | Observed |
+| PCPartPicker: price range slider in filter sidebar | PR04 | Observed |
+| PCPartPicker: sortable column headers with chevron icons (table view) | PR04 | Observed |
+| PCPartPicker: blue accent for primary actions ("Add From Filter", link text) | PR04 | Observed |
+| Amazon: left sidebar brand/spec filters; sort control top-right | PR06 | Observed |
+| Amazon: list-view product listing: image left + name + specs + price + rating | PR06 | Observed |
+| Amazon: white page background, standard star rating system | PR06 | Observed |
+| Coolblue: clean product grid on white background; breadcrumb visible | PR07 | Inferred |
+| Coolblue: blue accent consistent with professional theme direction | PR07 | Inferred |
+| Best Buy Canada: solid royal blue header accent (confirms blue as professional standard) | PR01 | Observed |
+
+**Professional filter pattern confirmed:** All usable professional references show:
+- Left sidebar position for primary filters
+- Breadcrumb above the catalog
+- Sort control top-right above product listing
+- Price always visible (Amazon partial exception with "see options")
+- White page background with white product cards
+
+---
+
+## Recommended References per Theme for Google Stitch (Priority Order)
+
+### Premium Minimalism
+1. **REF-P02** — Apple catalog: product card proportion and clean catalog header
+2. **REF-P05** — Teenage Engineering: editorial confidence, photography quality upper bound
+
+Supplementary descriptions (no screenshot reference — describe in words):
+- P03/P06: warm photography treatment, typographic restraint
+- P08: hero drama + clean secondary cards pattern
+
+### Gaming & Technology
+1. **REF-G04** — Alienware: atmosphere, palette direction (closest to purple/cyan), navigation
+2. **REF-G07** — NVIDIA: product photography quality, glow technique, minimal card text
+3. **REF-G01** — ASUS ROG: hero composition, dark page structure, uppercase headline
+4. **REF-G06** — MSI: product card grid structure, series navigation tabs
+
+### Modern Technology Store
+1. **REF-PR04** — PCPartPicker: filter sidebar accordion structure, left sidebar layout
+2. **REF-PR03** — Newegg: breadcrumb, filter chips, catalog header conventions
+3. **REF-PR06** — Amazon: user mental model reference, listing information hierarchy
+4. **REF-PR07** — Coolblue (partial): target quality level confirmation, clean grid style

@@ -181,4 +181,4 @@ components/
 13. Compose pages from components and hooks
 14. Verify all pages in all 3 themes × 3 viewports (desktop / tablet / mobile)
 15. Write unit tests (Vitest + RTL) for all `ui/` components
-16. Write E2E + visual regression tests (Playwright) — capture 36 baseline screenshots
+16. Write E2E + visual regression tests (Playwright) — hr 36 baseline screenshots

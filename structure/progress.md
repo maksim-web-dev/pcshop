@@ -12,6 +12,7 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Task 1.1 | prompt01 | Update PCShop project specifications — multi-theme, AI workflow, roadmap | **Completed** |
 | Task 1.2 | prompt02 | Define visual requirements for three themes | **Reviewed — minor findings addressed** |
 | Task 1.3 | prompt03 | Collect visual references and prepare moodboards | **Awaiting reference collection** |
+| Task 1.3.1 | prompt05 | Playwright MCP integration + visual reference screenshot collection | **Awaiting human review** |
 
 ### Task 1.2 — Review Findings Addressed (in Task 1.3)
 
@@ -30,7 +31,7 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Step | Description | Status |
 |------|-------------|--------|
 | Step 1 | Define visual requirements for all three themes | **Reviewed — minor findings addressed** |
-| Step 2 | Collect visual references (moodboards) | **Awaiting manual collection** (candidates documented, not yet verified) |
+| Step 2 | Collect visual references (moodboards) | **Partially complete** (15/24 usable refs; 9 usable for Stitch; human review required) |
 | Step 3 | Generate HomePage concepts via Google Stitch | Pending |
 | Step 4 | Generate CatalogPage concepts | Pending |
 | Step 5 | Generate ProductPage concepts | Pending |
@@ -58,8 +59,8 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 
 | Phase | Description | Status |
 |-------|-------------|--------|
-| Roadmap Phase 1 | Specification & AI Design | In progress (Step 2 awaiting reference collection) |
-| Roadmap Phase 2 | AI Development Environment | Pending |
+| Roadmap Phase 1 | Specification & AI Design | In progress (Step 2: 15/24 refs collected; Step 3 blocked on approval) |
+| Roadmap Phase 2 | AI Development Environment | In progress — Playwright MCP configured; Firefox browser installed; MCP docs created |
 | Roadmap Phase 3 | Frontend Foundation | Pending |
 | Roadmap Phase 4 | Shared UI Components | Pending |
 | Roadmap Phase 5 | Page Development using AI Agents | Pending |
@@ -72,8 +73,10 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 
 | Item | Blocks | Action required |
 |------|--------|----------------|
-| Design Step 2 reference collection incomplete | Design Step 3 (Google Stitch generation) | Human researcher must visit 24 candidate URLs, capture screenshots, update moodboard entries |
+| 9 references need human review (screenshots captured) | Design Step 3 final approval | Human reviews captured screenshots in `references/<theme>/screenshots/`; approves usable refs |
+| 6 references inaccessible (404/Cloudflare) | Full 8-reference-per-theme target | Human captures manually: B&H Photo, Micro Center, Best Buy Canada, Sony consumer electronics, Corsair catalog, Apple accessories |
 | Theme visual specifications not yet human-approved | All subsequent design steps | Human approval of colors, fonts, spacing decisions in `themes/*.md` |
+| Playwright MCP browser config needs new session | MCP tools in future sessions | `.mcp.json` updated to `--browser firefox`; takes effect on next Claude Code restart |
 
 ---
 

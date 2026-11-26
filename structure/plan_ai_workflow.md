@@ -76,9 +76,21 @@ Playwright MCP server enables AI agents to control a real browser during develop
 - Interact with the ThemeSwitcher and verify visual changes
 - Run axe-core accessibility checks in-browser
 - Capture baseline screenshots for visual regression tests
+- **Collect visual references** from public websites during the design phase
 
-**Configuration:** Playwright MCP is configured as a local MCP server in the project.
-Claude Code agents use it via tool calls — no manual screenshot step required.
+**Configuration:** Playwright MCP is configured as a local MCP server in the project
+via `.mcp.json` at the project root. Claude Code agents use it via tool calls.
+
+**Browser:** Firefox (headless) — configured via `--browser firefox` in `.mcp.json`.
+Firefox is installed at `~/.cache/ms-playwright/firefox-1572`.
+See `structure/ai/mcp/playwright.md` for full setup documentation.
+
+**Note on integration sequence:** Playwright MCP integration was performed in Task 1.3.1
+(prompt05), earlier than originally planned for Phase 2. This was required because
+Design Step 2 (visual reference collection) needed live browser access.
+Avoid duplicating MCP setup in subsequent phases — it is already configured.
+
+**Detailed documentation:** `structure/ai/mcp/playwright.md`
 
 ---
 
