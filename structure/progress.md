@@ -10,7 +10,18 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Task ID | Prompt | Description | Status |
 |---------|--------|-------------|--------|
 | Task 1.1 | prompt01 | Update PCShop project specifications — multi-theme, AI workflow, roadmap | **Completed** |
-| Task 1.2 | prompt02 | Define visual requirements for three themes | **Awaiting human review** |
+| Task 1.2 | prompt02 | Define visual requirements for three themes | **Reviewed — minor findings addressed** |
+| Task 1.3 | prompt03 | Collect visual references and prepare moodboards | **Awaiting reference collection** |
+
+### Task 1.2 — Review Findings Addressed (in Task 1.3)
+
+| Finding | File corrected | Change |
+|---------|---------------|--------|
+| Premium hover-reveal CTA not accessible on touch/keyboard | `themes/premium.md` §14, §19 | Added `@media (hover: hover)` rule; CTA always in DOM; keyboard focusable |
+| All theme fonts preloaded at startup (performance issue) | `visual-requirements.md` Risk 5 | Replaced with theme-aware lazy font loading strategy |
+| WCAG AA treated as aspirational, not required | `visual-requirements.md` §7 | Clarified as a requirement; ratios marked provisional until tested |
+| WCAG large text threshold incorrect (stated ≥18px/14px bold) | `visual-requirements.md` §7, all theme files §19 | Corrected to ≥24px regular or ≥18.67px bold |
+| Screenshot test viewports confused with CSS breakpoints | `visual-requirements.md` §6 | Added explicit note distinguishing test viewports (390/768/1440px) from CSS breakpoint ranges |
 
 ---
 
@@ -18,8 +29,8 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 
 | Step | Description | Status |
 |------|-------------|--------|
-| Step 1 | Define visual requirements for all three themes | **Awaiting human review** |
-| Step 2 | Collect visual references (moodboards) | Pending |
+| Step 1 | Define visual requirements for all three themes | **Reviewed — minor findings addressed** |
+| Step 2 | Collect visual references (moodboards) | **Awaiting manual collection** (candidates documented, not yet verified) |
 | Step 3 | Generate HomePage concepts via Google Stitch | Pending |
 | Step 4 | Generate CatalogPage concepts | Pending |
 | Step 5 | Generate ProductPage concepts | Pending |
@@ -47,7 +58,7 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 
 | Phase | Description | Status |
 |-------|-------------|--------|
-| Roadmap Phase 1 | Specification & AI Design | In progress (Step 1 awaiting review) |
+| Roadmap Phase 1 | Specification & AI Design | In progress (Step 2 awaiting reference collection) |
 | Roadmap Phase 2 | AI Development Environment | Pending |
 | Roadmap Phase 3 | Frontend Foundation | Pending |
 | Roadmap Phase 4 | Shared UI Components | Pending |
@@ -57,9 +68,21 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 
 ---
 
+## Blocking Items
+
+| Item | Blocks | Action required |
+|------|--------|----------------|
+| Design Step 2 reference collection incomplete | Design Step 3 (Google Stitch generation) | Human researcher must visit 24 candidate URLs, capture screenshots, update moodboard entries |
+| Theme visual specifications not yet human-approved | All subsequent design steps | Human approval of colors, fonts, spacing decisions in `themes/*.md` |
+
+---
+
 ## Notes
 
-- Task 1.2 / Design Step 1 output is in `structure/design/visual-requirements.md` and `structure/design/themes/`.
-- All proposed color values, font choices, and spacing values in theme files are **draft values requiring human approval**.
-- Google Stitch generation (Steps 3–7) has not begun — awaiting design specification approval.
-- No frontend code has been written.
+- Task 1.2 / Design Step 1 output: `structure/design/visual-requirements.md` and `structure/design/themes/`
+- Task 1.3 / Design Step 2 candidates: `structure/design/references/<theme>/moodboard.md`
+- Reference comparison: `structure/design/references/comparison.md`
+- Usage guide for Google Stitch: `structure/design/references/README.md`
+- All proposed color, font, and spacing values remain **draft — requiring human approval**
+- Google Stitch generation (Steps 3–7) blocked until: (a) references verified, (b) theme specs approved
+- No frontend code has been written

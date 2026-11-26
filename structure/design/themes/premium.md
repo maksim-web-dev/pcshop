@@ -244,7 +244,7 @@ No glow effects. No colored shadows. No inset shadows on inputs.
 - **Product name:** DM Sans 14px 600, `#1A1A1A`, max 2 lines
 - **Price:** DM Sans 16px 600, `#1A1A1A`
 - **Parameter badges:** Small, 2px radius, `#F4F3F0` background, `#5C5C5C` text, DM Sans 12px
-- **Add to cart:** Appears on hover (opacity transition), bottom of card, full-width, minimal height (40px)
+- **Add to cart:** Progressive enhancement — visible on hover on pointer devices (`@media (hover: hover)`). **On touch devices and via keyboard navigation the button must always be reachable**: use `@media (hover: none)` to show the button at rest, and ensure it is always in the DOM (never `display: none`; use `opacity`/`visibility` for visual reveal only). Keyboard focus on the card or its children must make the button focusable via Tab. This satisfies WCAG 2.1 SC 2.1.1 (Keyboard) and SC 1.3.1 (Info and Relationships).
 - **Shadow:** `--shadow-card` at rest, `--shadow-card-hover` on hover
 
 ---
@@ -306,8 +306,11 @@ No glow effects. No colored shadows. No inset shadows on inputs.
 
 ## 19. Accessibility Requirements
 
-- Color contrast ratio: all text ≥ 4.5:1 against background (`#1A1A1A` on `#FAFAF8` = 15.3:1 ✓)
+- Color contrast ratio: normal text ≥ 4.5:1; large text (≥ 24px regular or ≥ 18.67px bold) ≥ 3:1
+  (`#1A1A1A` on `#FAFAF8` = 15.3:1 ✓; `#5C5C5C` on `#FAFAF8` = 5.9:1 ✓)
+  All ratios are provisional until verified with actual rendered values during implementation.
 - Focus rings: `2px solid #1A1A1A, offset 2px` — always visible, never hidden
+- Hover-reveal CTA on product card: must remain keyboard-reachable and touch-accessible (see Section 14)
 - Interactive tap targets: minimum 44×44px on mobile
 - Reduced motion: all animations disabled when `prefers-reduced-motion: reduce`
 - Font minimum: 12px (11px captions exempt for non-critical labels)

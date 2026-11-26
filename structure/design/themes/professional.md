@@ -331,7 +331,7 @@ No glow effects. No colored shadows outside of `--shadow-card-hover` blue tint.
 
 ## 19. Accessibility Requirements
 
-- Color contrast: all text meets ≥ 4.5:1
+- Color contrast: normal text ≥ 4.5:1; large text (≥ 24px regular or ≥ 18.67px bold) ≥ 3:1. All ratios provisional until verified during implementation.
   - `#111827` on `#FFFFFF` = 16.75:1 ✓
   - `#4B5563` on `#FFFFFF` = 7.0:1 ✓
   - `#2563EB` on `#FFFFFF` = 4.6:1 ✓ (verify at all usage sizes, especially small)

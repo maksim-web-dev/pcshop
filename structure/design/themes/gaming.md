@@ -336,7 +336,7 @@ A high-performance gaming and technology brand. The visual language draws from m
 
 ## 19. Accessibility Requirements
 
-- Color contrast: all text on dark backgrounds must meet ≥ 4.5:1
+- Color contrast: normal text ≥ 4.5:1; large text (≥ 24px regular or ≥ 18.67px bold) ≥ 3:1. All ratios provisional until verified during implementation.
   - `#F0F0FF` on `#0A0A0F` = 18.9:1 ✓
   - `#A0A0C0` on `#0A0A0F` = 7.8:1 ✓
   - `#22D3EE` on `#0A0A0F` = 9.6:1 ✓ (use as text only where this ratio is maintained)

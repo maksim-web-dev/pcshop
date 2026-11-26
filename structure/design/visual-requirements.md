@@ -96,13 +96,19 @@ These requirements are non-negotiable and preserved from `structure/project.md`:
 
 ## 6. Responsive Design Principles
 
-**Breakpoints (identical across all themes):**
+**CSS breakpoints (identical across all themes):**
 
 | Breakpoint | Width | Layout type |
 |------------|-------|-------------|
-| Mobile | 390px | Single column, stacked layout |
-| Tablet | 768px | Two column, collapsed navigation |
-| Desktop | 1440px | Full multi-column, sidebar navigation |
+| Mobile | ≤ 767px | Single column, stacked layout |
+| Tablet | 768px – 1023px | Two column, collapsed navigation |
+| Desktop | ≥ 1024px | Full multi-column, sidebar navigation |
+
+> **Note — screenshot viewports vs CSS breakpoints:**
+> Visual regression tests capture screenshots at fixed viewport widths (390px / 768px / 1440px)
+> for reproducibility. These are **test viewports**, not CSS breakpoint boundaries.
+> CSS breakpoints use range-based media queries; test viewports are single-point measurements
+> chosen to represent each range. Do not define CSS breakpoints at exactly 390/768/1440.
 
 **Shared responsive rules:**
 - Filter sidebar collapses to a drawer on mobile and tablet (triggered by a button)
@@ -122,7 +128,7 @@ Minimum requirements for all three themes:
 | Requirement | Standard |
 |-------------|----------|
 | Text contrast (normal text) | WCAG AA: ≥ 4.5:1 |
-| Text contrast (large text ≥ 18px or 14px bold) | WCAG AA: ≥ 3:1 |
+| Text contrast (large text: ≥ 24px regular, or ≥ 18.67px bold) | WCAG AA: ≥ 3:1 |
 | Focus ring | Always visible, 2px minimum, never `outline: none` without replacement |
 | Interactive target size | ≥ 44×44px on mobile |
 | Keyboard navigation | All interactive elements reachable and operable via keyboard |
@@ -333,9 +339,14 @@ All pages and components must handle all four states explicitly in all themes.
 - **Issue:** Font mixing introduces visual tension. Hierarchy must be very clear to avoid "two fonts fighting."
 - **Mitigation:** Playfair Display used exclusively for Display and H1/H2 headings. DM Sans for all UI text. Never mixed at the same visual level.
 
-### Risk 5: Theme switching performance on slow connections
-- **Issue:** If font files are not preloaded, theme switching to `premium` (Playfair Display) or `gaming` (Rajdhani) may cause a FOUT (flash of unstyled text).
-- **Mitigation:** Preload all three theme font families on app load. Use `font-display: swap` with appropriate fallback stacks.
+### Risk 5: Font loading on theme switch
+- **Issue:** If non-default theme fonts are not loaded before first use, switching to `premium` (Playfair Display) or `gaming` (Rajdhani) may cause a FOUT (flash of unstyled text).
+- **Mitigation:** Use **theme-aware lazy font loading**, not full upfront preload of all fonts:
+  1. At app startup: load only the default theme font (`Inter` for `professional`)
+  2. After initial render (`requestIdleCallback`): prefetch `Playfair Display` and `Rajdhani` font files
+  3. On first theme switch: font is either already prefetched or loaded on demand; `font-display: optional` or `swap` with stable fallback stack minimises layout shift
+  4. Loaded font files are cached by the browser — subsequent switches are instant
+  - This approach avoids blocking the initial render on fonts the user may never need.
 
 ---
 
