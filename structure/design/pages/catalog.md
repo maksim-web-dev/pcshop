@@ -1,8 +1,9 @@
 # CatalogPage — Shared Design Specification
 
-**Version:** 1.0 (2026-11-27)  
-**Reference designs:** To be generated — `structure/design/stitch/catalog/{theme}/v1-generated.png`  
-**Status:** Specification complete — awaiting Google Stitch generation and human design approval
+**Version:** 1.1 (2026-11-27)  
+**Reference designs:** `structure/design/stitch/catalog/{theme}/v1-generated.png` (all three themes generated)  
+**Status:** V1 designs generated and conditionally approved — awaiting human sign-off  
+**Approved design guidance:** `structure/design/stitch/catalog/{theme}/approved-design-guidance.md`
 
 ---
 
@@ -102,16 +103,23 @@ The filter panel renders filterable parameters for the active category.
 
 Each filter group shows:
 - Group label: parameter `name` + optional `unit` (e.g., "RAM (GB)")
-- One checkbox per available value
-- Selected values are visually checked
+- One **radio button** per available value (single-select per group — `<input type="radio">`)
+- Selected value is visually marked as the active state
 - Max 5 parameters per category (backend limit)
+- Screen Size (`screen_size`) must be rendered when present in the category's `parameters[]`
+
+**Single-selection rule:** Each filter parameter uses radio button semantics — selecting a value replaces any previous selection for that parameter. Multiple parameters may be combined (AND logic). Do not use checkboxes or multi-select for individual parameters.
+
+**Dynamic rendering rule:** Do not hardcode filter groups from Stitch-generated HTML. Render all parameter groups from `GET /api/categories/{categoryId}` → `parameters[]`. The number and type of parameters varies by category.
+
+**Filter value source:** Always use values returned by `GET /api/categories/{categoryId}/parameters/{key}/values`. Do not use `value` attributes from Stitch HTML as the source of truth — those values may include unit suffixes or abbreviations that do not match the backend's exact-match filter format.
 
 ### Filter interaction
 
-- Selecting a checkbox adds `params.{key}={value}` to the URL
+- Selecting a radio option adds `params.{key}={value}` to the URL using the raw API value
 - Only one value per key is supported (single-select per parameter — AND logic only)
 - Selecting a different value for the same key replaces the previous value
-- Deselecting a checkbox removes the `params.{key}` from the URL
+- Clicking the already-selected radio again deselects it and removes `params.{key}` from the URL
 - Each filter change triggers a new `GET /api/products` request with updated params
 
 ### Filter sidebar design requirements
@@ -231,6 +239,14 @@ Page is reflected in the URL: `/catalog?...&page=2`
 
 Navigating pages does not reset filters or sort.
 
+### Pagination state behavior
+
+| Condition | Behavior |
+|-----------|---------|
+| `meta.totalPages > 1` | Pagination visible; Previous disabled on page 1; Next disabled on last page; page number buttons shown |
+| `meta.totalPages === 1` | Pagination visible; both Previous and Next disabled; page 1 shown as active |
+| `meta.total === 0` | Pagination hidden; show empty state ("No products match your filters") |
+
 ### Pagination and theme switching
 
 Theme switching does not reset the page number.
@@ -313,7 +329,7 @@ All accessibility requirements from `home.md §12` apply. Additional CatalogPage
 | Requirement | Specification |
 |-------------|--------------|
 | Filter group | `<fieldset>` with `<legend>` for each parameter group |
-| Filter checkboxes | Native `<input type="checkbox">` with associated `<label>` |
+| Filter inputs | Native `<input type="radio">` per value within `<fieldset>/<legend>`; associated `<label>` |
 | Active filter chips | Each chip has `aria-label="Remove RAM: 32 GB filter"` |
 | Sort control | `<label>` associated with `<select>` or ARIA for custom dropdown |
 | Result count | Live region: `role="status"` or `aria-live="polite"` to announce count changes |

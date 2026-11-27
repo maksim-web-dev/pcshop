@@ -17,21 +17,38 @@ catalog/
 ├── gaming-prompt.md             ← Stitch prompt for Gaming & Technology CatalogPage
 ├── professional-prompt.md       ← Stitch prompt for Modern Technology Store CatalogPage
 ├── review-checklist.md          ← 13-dimension + catalog-specific review criteria
+├── review-v1.md                 ← V1 design review report (all three themes)
 ├── premium/                     ← Premium theme output directory
-│   └── README.md
+│   ├── README.md
+│   ├── v1-generated.png         ← V1 screenshot (605×757 px)
+│   ├── v1-code.html             ← V1 generated HTML
+│   ├── v1-prompt.md             ← Exact submitted prompt
+│   └── approved-design-guidance.md
 ├── gaming/                      ← Gaming theme output directory
-│   └── README.md
+│   ├── README.md
+│   ├── v1-generated.png         ← V1 screenshot (683×757 px)
+│   ├── v1-code.html             ← V1 generated HTML
+│   ├── v1-prompt.md             ← Exact submitted prompt
+│   └── approved-design-guidance.md
 └── professional/                ← Professional theme output directory
-    └── README.md
+    ├── README.md
+    ├── v1-generated.png         ← V1 screenshot (687×757 px)
+    ├── v1-code.html             ← V1 generated HTML
+    ├── v1-prompt.md             ← Exact submitted prompt
+    └── approved-design-guidance.md
 ```
 
 ## Status
 
 | Theme | Prompt | Generated | Reviewed | Approved |
 |-------|--------|:---------:|:--------:|:--------:|
-| Premium Minimalism | ✓ Ready | ☐ | ☐ | ☐ |
-| Gaming & Technology | ✓ Ready | ☐ | ☐ | ☐ |
-| Modern Technology Store | ✓ Ready | ☐ | ☐ | ☐ |
+| Premium Minimalism | ✓ Ready | ✓ V1 | ✓ Conditionally approved | ☐ Awaiting human |
+| Gaming & Technology | ✓ Ready | ✓ V1 | ✓ Conditionally approved | ☐ Awaiting human |
+| Modern Technology Store | ✓ Ready | ✓ V1 | ✓ Conditionally approved | ☐ Awaiting human |
+
+**Review report:** `review-v1.md`  
+**Step 13 execution report:** `structure/steps/result13.md`  
+**Step 14 execution report:** `structure/steps/result14.md`
 
 ---
 
