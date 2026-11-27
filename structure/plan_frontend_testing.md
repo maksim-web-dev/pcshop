@@ -164,15 +164,64 @@ then reload and assert `data-theme` attribute.
 **Objective:** Verify all pages render correctly at all 3 breakpoints across all 3 themes.
 
 **Method:** Playwright screenshots are the primary verification tool (covered by visual regression).
-Additional checks:
+Screenshots are captured from the **implemented application** — not from Stitch exports or any
+other static files. Stitch PNG files are not at a known viewport width and must not be used as
+Playwright screenshot baselines.
+
+Additional checks beyond the visual regression screenshots:
 
 | Check | Method |
 |-------|--------|
 | No horizontal scroll at any breakpoint | Assert `document.documentElement.scrollWidth <= window.innerWidth` |
-| Filter sidebar collapses on mobile | Assert sidebar is not visible; filter button is visible |
-| Navigation collapses to hamburger on mobile | Assert hamburger visible, nav items hidden |
-| Product grid adapts columns (4 → 2 → 1) | Assert CSS grid column count per breakpoint |
-| CTA buttons ≥ 44px tap target on mobile | Assert `clientHeight >= 44` for primary CTAs |
+| Filter sidebar hidden on mobile and tablet | Assert FilterPanel not visible; Filters button visible |
+| FilterDrawer opens and closes on mobile | Tap Filters → drawer opens; Escape → closes; focus returns to trigger |
+| FilterDrawer Apply commits selections | Select filter in drawer → tap Apply → product list updates |
+| Navigation collapses to hamburger on mobile | Assert hamburger visible, nav links hidden |
+| NavigationDrawer opens and closes | Tap hamburger → drawer opens; Escape → closes; links usable |
+| Product grid adapts columns per theme per breakpoint | Gaming: 4 col at 1440px → 2 col at 768px → 2 col at 390px |
+| Primary CTA buttons ≥ 44px tap target on mobile | Assert `clientHeight >= 44` for all primary CTA buttons |
+| SearchInput visible at desktop and tablet | Assert input visible at 1440px and 768px |
+| SearchOverlay opens on mobile | Tap search icon → overlay opens; input receives focus |
+| Font size ≥ 16px on all form inputs at mobile | Prevents iOS auto-zoom on focus |
+| Breadcrumbs do not overflow at mobile | No horizontal scroll from breadcrumb at 390px |
+| Footer stacks to single column at mobile | Assert 4-column layout not present at 390px |
+| NotFoundPage CTA full-width at mobile | Primary CTA spans container width at 390px |
+| ProductPage: image gallery and purchase section stack at mobile | Two-column layout not present at 390px |
+
+### Responsive Acceptance Criteria (all 4 pages × all 3 themes × all 3 viewports)
+
+**All of the following must pass before a page is marked responsive-complete:**
+
+| Criterion | Viewports | Themes |
+|-----------|-----------|--------|
+| No unintended horizontal overflow | 390px, 768px, 1440px | Premium, Gaming, Professional |
+| No clipped text or inaccessible actions | All | All |
+| Mobile navigation accessible (hamburger / drawer) | 390px | All |
+| FilterDrawer accessible with correct focus management | 390px, 768px | All |
+| FilterPanel visible and functional | 1024px+ | All |
+| CTA tap targets ≥ 44px | 390px | All |
+| Readable specification table (ProductPage) | 390px, 768px, 1440px | All |
+| Theme switching preserves application state | All | All |
+| Viewport resize preserves application state | All | All |
+| All 36 baseline screenshots approved and committed | 390px, 768px, 1440px | Premium, Gaming, Professional |
+
+### State preservation across viewport changes
+
+| State | Preserved on resize? |
+|-------|---------------------|
+| Active theme | Yes — from localStorage; not affected by resize |
+| Cart contents | Yes — from Zustand; not affected by resize |
+| URL-encoded state (search, filters, sort, page) | Yes — in URL; not affected by resize |
+| FilterPanel selections (desktop) | Yes — applied immediately to URL |
+| FilterDrawer staged selections (mobile) | **Discarded** if Apply not pressed before resize to desktop |
+| Selected product image (ProductPage) | Yes — local component state |
+| Quantity (ProductPage) | Yes — local component state |
+
+### Visual regression note
+
+All 36 screenshots capture the application at a stable state: seed data loaded, all fonts rendered,
+animations disabled. Screenshots are **not** automatically approved — human review is required
+before committing baselines.
 
 ---
 

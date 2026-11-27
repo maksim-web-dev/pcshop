@@ -23,8 +23,10 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Task 1.5.2 | prompt13 (manual) | Google Stitch CatalogPage generation — 3 themes generated | **Completed** |
 | Task 1.5.3 | prompt14 | CatalogPage design review: 13-dimension evaluation, approved-design-guidance files, review report | **Completed — awaiting human sign-off** |
 | Task 1.6.1 | prompt15 | ProductPage design prep: backend capabilities, mock data, shared spec, 3 Stitch prompts, review checklist, README files | **Completed — awaiting Google Stitch generation** |
-| Task 1.6.2 | prompt16 (manual) | Google Stitch ProductPage generation — 3 themes to generate | **Pending** |
+| Task 1.6.2 | prompt16 (manual) | Google Stitch ProductPage generation — 3 themes to generate | **Completed** |
 | Task 1.6.3 | prompt17 | ProductPage design review: 13-dimension evaluation, approved-design-guidance files, review report | **Completed — awaiting human sign-off** |
+| Task 1.7 | prompt18 | NotFoundPage specification: shared spec + theme-specific presentations | **Completed** |
+| Task 1.8 | prompt18 | Responsive design specification: breakpoints, components, pages, acceptance criteria | **Completed** |
 
 ### Task 1.2 — Review Findings Addressed (in Task 1.3)
 
@@ -47,16 +49,13 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Step 3 | Generate HomePage concepts via Google Stitch | **V2 conditionally approved** — awaiting human sign-off; approved-design-guidance prepared; HomePage baseline created |
 | Step 4 | Generate CatalogPage concepts | **V1 conditionally approved** — all 3 themes generated; 13-dimension review complete (Premium 56/65, Gaming 60/65, Professional 62/65¹); approved-design-guidance prepared; awaiting human sign-off |
 | Step 5 | Generate ProductPage concepts | **V1 conditionally approved** — all 3 themes generated; 13-dimension review complete (Premium 55/65, Gaming 60/65, Professional 63/65); approved-design-guidance prepared; awaiting human sign-off |
-| Step 6 | Define NotFoundPage design | **Stitch generation not recommended** — design directly in React during implementation (see `design-phase-summary.md §10`) |
-| Step 7 | Generate responsive design variants | **No Stitch generation needed** — implement at Tailwind breakpoints during frontend Phase 5 |
+| Step 6 | Define NotFoundPage design | **Specified** — `structure/design/pages/not-found.md` created; no Stitch generation required |
+| Step 7 | Generate responsive design variants | **Specified** — `structure/design/responsive-design.md` and `responsive-component-matrix.md` created; no Stitch generation required; validate at implementation |
 | Step 8 | Create shared Design System specification | Pending — after human approval of primary designs |
-| Step 6 | Define NotFoundPage design *(Google Stitch optional for this step)* | Pending |
-| Step 7 | Generate responsive design variants | Pending |
-| Step 8 | Create shared Design System specification | Pending |
 | Step 9 | Define theme-specific design tokens | Pending |
 | Step 10 | Define shared components and presentation variants | Pending |
 | Step 11 | Define component states (loading, empty, error, hover, focus, disabled) | Pending |
-| Step 12 | Review and approve designs before implementation | Pending |
+| Step 12 | Review and approve designs before implementation | Pending — human design approval gate before frontend implementation |
 
 ---
 
@@ -74,7 +73,7 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 
 | Phase | Description | Status |
 |-------|-------------|--------|
-| Roadmap Phase 1 | Specification & AI Design | In progress (Step 3: V2 awaiting human approval; Step 4: CatalogPage V1 conditionally approved, awaiting human sign-off; Step 5: ProductPage pending) |
+| Roadmap Phase 1 | Specification & AI Design | In progress — 9 primary desktop designs conditionally approved (Steps 3–5); NotFoundPage specified (Step 6); responsive strategy specified (Step 7); Steps 8–12 pending human design approval |
 | Roadmap Phase 2 | AI Development Environment | In progress — Playwright MCP configured; Firefox browser installed; MCP docs created |
 | Roadmap Phase 3 | Frontend Foundation | Pending |
 | Roadmap Phase 4 | Shared UI Components | Pending |
@@ -88,13 +87,10 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 
 | Item | Blocks | Action required |
 |------|--------|----------------|
-| Human design approval of HomePage V2 designs | Design Step 12 final sign-off; React implementation start | Review `review-v2.md` and `approved-design-guidance.md` for each homepage theme; sign off or request V3 |
-| Human design approval of CatalogPage V1 designs | Design Step 4 completion | Review `catalog/review-v1.md` and `catalog/{theme}/approved-design-guidance.md`; sign off or request V2; note open M1 (Premium search form) |
-| Human design approval of ProductPage V1 designs | Design Step 5 completion; frontend implementation start | Review `product/review-v1.md` and `product/{theme}/approved-design-guidance.md`; sign off or request V2 |
-| Premium CatalogPage search form decision (M1) | Premium CatalogPage implementation | Decide: visible search input across Premium pages (catalog usability) vs icon-only (matches homepage spec); recorded in `catalog/premium/approved-design-guidance.md §7` |
-| Premium product count decision (4 vs 6) | Implementation specification | Proposed resolution: 6 products (pending human approval); documented in `home.md §7.1` |
-| Review decisions from prompt12 approval | home.md, mock-products.md, gaming guidance | 5 decisions documented as pending human sign-off; recorded in `result12.md §2` |
-| Playwright MCP browser config needs new session | MCP tools in future sessions | `.mcp.json` updated to `--browser firefox`; takes effect on next Claude Code restart |
+| Human design approval of all 9 primary desktop designs | Design Step 12 final sign-off; frontend implementation start (Phase 3) | Review all 9 `approved-design-guidance.md` files and `review-v*.md` reports for HomePage V2, CatalogPage V1, ProductPage V1 (all 3 themes); sign off or request revision |
+| Premium CatalogPage search form decision (M1) | Premium CatalogPage implementation | Decide: compact visible search input across Premium pages vs icon-only (matches homepage spec); proposed resolution: visible (pending approval); documented in `catalog/premium/approved-design-guidance.md §7` |
+| Design baseline decisions (5 items) | home.md, catalog implementation | Proposed resolutions documented in `design-phase-summary.md §Design Baseline Decisions`; pending explicit human approval: (1) 6 products on all homepage themes; (2) semantic status colors permitted system-wide; (3) original backend values authoritative for filter requests; (4) unsupported footer links not implemented; (5) Professional is default theme (confirmed) |
+| Playwright MCP browser config needs new session | MCP tools in future sessions | `.mcp.json` updated to `--browser firefox`; takes effect on next Claude Code restart; MCP is configured but browser launch not verified in current session |
 
 ---
 
@@ -123,7 +119,13 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 - ProductPage V1 review report: `structure/design/stitch/product/review-v1.md`
 - ProductPage approved-design-guidance: `structure/design/stitch/product/{theme}/approved-design-guidance.md`
 - Design phase summary: `structure/design/design-phase-summary.md`
+- NotFoundPage specification: `structure/design/pages/not-found.md`
+- Responsive design specification: `structure/design/responsive-design.md`
+- Responsive component matrix: `structure/design/responsive-component-matrix.md`
 - ¹ Professional CatalogPage score: §12 of `result14.md` incorrectly shows 56/65; correct total per individual scores is 62/65 (see correction note in `result14.md §16` and authoritative `review-v1.md`)
 - All proposed color, font, and spacing values remain **draft — requiring human approval**
 - Design token global definition (Step 9) pending — do not finalize CSS custom properties yet
 - No frontend code has been written
+- 9 primary desktop designs selected as baselines; additional Stitch generation requests may have occurred during V1→V2 iteration for HomePag — exact total request count is not tracked
+- Currency format (e.g., "$1,799") used in mock data for design purposes; actual formatting convention to be confirmed against backend `price decimal(10,2)` field and locale requirements at implementation
+- Playwright MCP is configured (`--browser firefox`) but browser launch has not been verified in the current session; verification requires restarting Claude Code after `.mcp.json` was last modified

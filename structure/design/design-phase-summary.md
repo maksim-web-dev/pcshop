@@ -1,8 +1,8 @@
 # PCShop Design Phase Summary
 
-**Version:** 1.0 (2026-11-27)  
-**Status:** Design phase in progress — ProductPage V1 conditionally approved; human sign-off pending  
-**Covers:** Design Steps 1–5 (visual requirements through ProductPage)
+**Version:** 1.1 (2026-11-27)  
+**Status:** Design phase in progress — NotFoundPage specified; responsive design specified; human sign-off on primary desktop designs pending  
+**Covers:** Design Steps 1–7 (visual requirements through responsive design specification)
 
 ---
 
@@ -133,19 +133,26 @@ Corrections required before or during React implementation:
 
 ---
 
-## 7. Outstanding Responsive Design Requirements
+## 7. Responsive Design Strategy  `[specified]`
 
-No responsive design has been generated. Desktop (1440px) is the only designed viewport.
+Responsive design is **not generated in Stitch**. It is specified in writing and validated at implementation.
 
-| Step | Description | Approach |
-|------|-------------|---------|
-| Tablet (768–1023px) | Compressed two-column layouts | Implement in CSS/Tailwind — no additional Stitch generation needed |
-| Mobile (≤767px) | Single-column stacked layouts | Implement in CSS/Tailwind — no additional Stitch generation needed |
-| Mobile filters (CatalogPage) | Filter drawer/overlay | Design in React during implementation |
-| Mobile CTA sticky | Sticky bottom CTA on ProductPage | Implement in React |
-| Mobile search | Search overlay/expansion | Implement in React |
+| Specification file | Status |
+|-------------------|--------|
+| `structure/design/responsive-design.md` | Created 2026-11-27 |
+| `structure/design/responsive-component-matrix.md` | Created 2026-11-27 |
 
-**Recommendation:** Handle responsive design during frontend implementation using the desktop designs as the primary reference. Visual validation via Playwright at 390px, 768px, 1440px viewports.
+**Key decisions documented:**
+
+| Decision | Detail |
+|----------|--------|
+| CSS breakpoints | `md: 768px`, `lg: 1024px` (Tailwind defaults) |
+| Test viewports | 390px, 768px, 1440px — separate from CSS breakpoints |
+| Implementation strategy | Mobile-first CSS; desktop enhancements via `md:` and `lg:` |
+| CatalogPage filters | Desktop: FilterPanel (immediate); Mobile/Tablet: FilterDrawer (deferred Apply) |
+| Validation | Playwright at implementation; 36 baseline screenshots from live application |
+
+**Responsive requirements are specified — not yet validated.** Validation occurs during frontend implementation (Roadmap Phase 5–6).
 
 ---
 
@@ -163,54 +170,73 @@ No responsive design has been generated. Desktop (1440px) is the only designed v
 
 ## 9. Remaining Design System Work
 
-| Step | Description | When |
-|------|-------------|------|
-| Step 6 | NotFoundPage design | Before frontend Phase 5 starts (see §10 below) |
-| Step 7 | Responsive design variants | During frontend implementation |
-| Step 8 | Shared Design System specification | After all primary pages approved |
-| Step 9 | Theme-specific design tokens (CSS custom properties) | After Step 8 |
-| Step 10 | Shared component catalog + presentation variants | After Step 9 |
-| Step 11 | Component states (loading, error, hover, focus, disabled) | After Step 10 |
-| Step 12 | Final pre-implementation design review | Before frontend Phase 3 |
+| Step | Description | Status | When |
+|------|-------------|--------|------|
+| Step 6 | NotFoundPage design | **Done** — `structure/design/pages/not-found.md` | 2026-11-27 |
+| Step 7 | Responsive design specification | **Done** — `responsive-design.md`, `responsive-component-matrix.md` | 2026-11-27 |
+| Step 8 | Shared Design System specification | Pending | After human approval of Steps 3–5 |
+| Step 9 | Theme-specific design tokens (CSS custom properties) | Pending | After Step 8 |
+| Step 10 | Shared component catalog + presentation variants | Pending | After Step 9 |
+| Step 11 | Component states (loading, error, hover, focus, disabled) | Pending | After Step 10 |
+| Step 12 | Final pre-implementation design review | Pending | Before frontend Phase 3 |
 
-**None of these steps should be blocked by human approval of the current designs.** Steps 8–12 can proceed in parallel with frontend foundation work.
-
----
-
-## 10. NotFoundPage Recommendation
-
-A dedicated Google Stitch generation is **not recommended** for the NotFoundPage.
-
-**Rationale:** The NotFoundPage is a minimal utility page. Generating it in Stitch adds cycle cost without meaningful design value.
-
-**Recommended approach:**
-- Design NotFoundPage directly in React during Phase 5 (Page Development)
-- Use the established theme colors and typography from approved-design-guidance files
-- Structure: Header + simple centered message + "Browse all Laptops" link + Footer
-- Theme-specific styling: same header/footer as other pages; message in primary text color
-- No new Stitch generation required
-
-If the project owner wants a Stitch reference, a quick one-page prompt can be prepared — but it is not on the critical path.
+**Steps 6–7 are complete.** Steps 8–12 require human approval of primary designs (Steps 3–5) as a prerequisite.
 
 ---
 
-## 11. Efficient Completion Strategy
+## 10. NotFoundPage Design  `[specified]`
+
+A dedicated Google Stitch generation is **not required** for the NotFoundPage.
+
+**Specification:** `structure/design/pages/not-found.md` (created 2026-11-27)
+
+| Theme | 404 Indicator | Heading | CTA |
+|-------|--------------|---------|-----|
+| Premium | Playfair 400, 96–120px, `#E5E0DB` | Playfair 400, 32px, `#1A1A1A` | Graphite `#1A1A1A` fill |
+| Gaming | Rajdhani 700 UPPERCASE, purple `#8B5CF6` | Rajdhani 700 UPPERCASE, `#F0F0FF` | Purple gradient `#8B5CF6 → #5516BE` |
+| Professional | Inter 700, 96–120px, `#E5E7EB` | Inter 700, 32px, `#111827` | Blue `#2563EB` fill |
+
+**Error taxonomy:** unknown route / product not found (HTTP 404) / inactive product (`isActive === false` via HTTP 200) / temporary API failure (must NOT redirect to NotFoundPage).
+
+**Implementation:** React component using established theme tokens — no additional Stitch generation needed.
+
+---
+
+## 11. Design Baseline Decisions
+
+The following decisions have been proposed and documented. They apply to all pages and all themes.
+**None have received explicit human approval.** Documentation preparation may proceed; frontend implementation requires approval of all blocking items.
+
+| # | Decision | Proposed resolution | Status |
+|---|----------|--------------------|---------| 
+| D1 | Number of featured products on HomePage | 6 products in all 3 themes | Pending human approval |
+| D2 | Premium CatalogPage search input (M1) | Compact visible desktop input (not icon-only) | Pending human approval |
+| D3 | Default theme | Professional | Pending human approval |
+| D4 | Semantic status colors | Allowed system-wide (green for in-stock, red for out-of-stock) | Pending human approval |
+| D5 | Filter API request values | Original backend values authoritative (not display-label abbreviations) | Pending human approval |
+| D6 | Unsupported footer links | Not implemented; only supported routes linked | Pending human approval |
+| D7 | Backend product data and images | Authoritative at runtime; Stitch placeholder URLs replaced | Pending human approval |
+| D8 | Currency format | Mock data uses "$1,799"; actual format confirmed at implementation | Unresolved |
+
+---
+
+## 12. Efficient Completion Strategy
 
 **Recommended path to implementation start:**
 
-1. **Human approval** (blocking): Review and sign off on 9 designs; resolve M1 (Premium search) and 5 decisions from result12.md
+1. **Human approval** (blocking): Review and sign off on 9 designs; resolve decisions D1–D7 above
 2. **Design Steps 8–9** (parallel to frontend foundation): Define design tokens and shared component catalog based on approved HTML/CSS
 3. **Frontend Phase 3** (foundation): Vite + React + Tailwind setup; theme system; routing; Zustand stores
 4. **Frontend Phase 4** (components): Build shared components using approved designs; validate with Playwright
 5. **Frontend Phase 5** (pages): Build all 3 pages per theme + NotFoundPage; Playwright visual regression
-6. **Responsive** (embedded in Phase 5): Handle at Tailwind breakpoints; no Stitch generation
-7. **Accessibility** (embedded in Phase 5): axe-core + keyboard test + screen reader
+6. **Responsive** (embedded in Phase 5): Implement Tailwind breakpoints per `responsive-design.md`; validate at 390/768/1440px
+7. **Accessibility** (embedded in Phase 5–6): axe-core + keyboard test + screen reader
 
 **Tasks that do NOT need new Stitch generation:**
-- NotFoundPage
+- NotFoundPage ✓ (specified in `not-found.md`)
+- Responsive layouts ✓ (specified in `responsive-design.md`)
 - Loading states (skeleton screens — implement via component convention)
 - Error states (implement via component convention)
-- Responsive layouts
 - Out-of-stock, inactive product, missing image states
 
-**Total Stitch generations completed:** 9 (3 themes × 3 pages). No further Stitch generation is required for the core design phase.
+**Total primary desktop designs selected as baselines:** 9 (3 themes × 3 pages: HomePage V2, CatalogPage V1, ProductPage V1). Additional Stitch requests may have occurred during the V1→V2 iteration for HomePage — exact total is not tracked. No further Stitch generation is required for the core design phase.

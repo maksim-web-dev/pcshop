@@ -67,27 +67,30 @@ Detailed frontend phases (expansion of Phase 3). Backend and observability compl
 
 ---
 
-### Roadmap Phase 1 — Specification & AI Design  `[pending]`
+### Roadmap Phase 1 — Specification & AI Design  `[in progress]`
 
 **Objective:** Define visual specifications for all three themes and produce approved AI designs for all pages before any code is written.
 
-**Deliverables:**
-- Visual requirements document for each theme (premium, gaming, professional)
-- Moodboard / visual reference collection per theme
-- AI-generated concepts via Google Stitch: 4 pages × 3 themes = 12 design concepts
-- Responsive variants (desktop / tablet / mobile) for each approved concept
-- Shared Design System specification (component inventory, token categories)
-- Theme-specific design token definitions (color, typography, spacing, border, shadow, density, animation)
-- Component variant inventory: shared components + cases requiring theme-specific layouts
-- All component states specified: loading, empty, error, hover, focus, disabled
+**Progress (as of 2026-11-27):**
+- Visual requirements complete for all 3 themes ✓
+- Visual references collected (9 usable refs; accepted as sufficient) ✓
+- 9 primary desktop designs generated via Google Stitch: HomePage V2, CatalogPage V1, ProductPage V1 for all 3 themes ✓ — conditionally approved, **awaiting human sign-off**
+- NotFoundPage design specification complete (`structure/design/pages/not-found.md`) ✓
+- Responsive design specification complete (`structure/design/responsive-design.md`, `responsive-component-matrix.md`) ✓
+- Shared Design System specification (component inventory, token categories) — **pending**
+- Theme-specific design token definitions — **pending**
+- Component variant inventory and component states — **pending**
+
+**Remaining deliverables:**
+- Design Steps 8–12: Shared Design System, design tokens, component catalog, component states, final review (blocked on human design approval)
 
 **Acceptance Criteria:**
-- All 3 themes have approved designs for all 4 pages at all 3 viewports (36 designs total)
+- Human approval gate: all 9 primary desktop designs reviewed and signed off (**pending**)
 - Design tokens defined in full per theme — no gaps
 - Component state designs complete for every UI component
-- Human approval gate: designs reviewed and signed off before implementation begins
+- Responsive design validated at implementation (390px / 768px / 1440px) — no Stitch generation for responsive variants
 
-**Dependencies:** project.md, plan_design.md approved
+**Dependencies:** Human approval of 9 primary desktop designs (Steps 3–5)
 
 ---
 

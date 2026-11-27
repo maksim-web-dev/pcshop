@@ -98,39 +98,52 @@ before any frontend implementation begins.
 
 ---
 
-## Step 6 — Define NotFoundPage Design
+## Step 6 — Define NotFoundPage Design  `[done]`
 
 **Objective:** Define the 404 page design for all three themes.
 
-**Note:** Google Stitch generation is optional for this page — it can be designed manually
+**Note:** Google Stitch generation is not required. The NotFoundPage is specified in writing
 using the established design language from steps 3–5.
 
-**Deliverables:**
-- NotFoundPage layout per theme: illustration/graphic treatment, copy, navigation CTA
-- Consistent with the visual identity established in previous steps
+**Deliverables (completed 2026-11-27):**
+- `structure/design/pages/not-found.md` — shared NotFoundPage specification for all 3 themes
+- Error state taxonomy: unknown route / product not found / inactive product / temporary API failure
+- Theme-specific 404 presentations: Premium (Playfair serif, subdued gray), Gaming (Rajdhani UPPERCASE, purple glow), Professional (Inter, blue)
+- Responsive layout: 404 indicator scales 96–120px → 72–96px → 56–72px
+- Accessibility: `aria-hidden` on decorative 404 numeral; `<h1>` carries meaning; primary CTA receives focus on mount
 
-**Acceptance Criteria:**
-- Page is clearly branded per theme
-- Navigation back to home or catalog is obvious
-- No external design tool required — can be specified in writing if design language is clear
+**Acceptance Criteria (met):**
+- Page is clearly branded per theme ✓
+- Navigation back to home and catalog is unambiguous ✓
+- Temporary API failures explicitly excluded from NotFoundPage scope ✓
+- No Google Stitch generation required ✓
 
 ---
 
-## Step 7 — Generate Responsive Design Variants
+## Step 7 — Responsive Design Specification  `[done]`
 
-**Objective:** Produce tablet (768px) and mobile (390px) variants for all approved designs.
+**Objective:** Produce a comprehensive responsive design specification for all pages and components.
 
-**Scope:** All 4 pages × 2 additional breakpoints = 8 responsive generations per theme (24 total).
+**Note (strategy change):** Additional Stitch generations for responsive variants are not
+required. Responsive design is specified in writing and validated at implementation.
 
-**Deliverables:**
-- Tablet and mobile variants for all 4 pages in all 3 themes
-- Responsive layout notes: navigation collapse behavior, filter drawer on mobile, card grid changes
+**Deliverables (completed 2026-11-27):**
+- `structure/design/responsive-design.md` — 17-section specification covering breakpoints, grids, typography, components, all 4 pages
+- `structure/design/responsive-component-matrix.md` — per-component desktop/tablet/mobile behavior matrix with accessibility and state preservation requirements
 
-**Acceptance Criteria:**
-- Mobile layouts are thumb-friendly (CTA buttons ≥ 44px tap target)
-- Filter panel collapses to a drawer or bottom sheet on mobile
-- Typography scales correctly (no overflow, no tiny text)
-- Human approves all responsive variants before design system work begins
+**Key decisions:**
+- CSS breakpoints: `md: 768px`, `lg: 1024px` (Tailwind defaults)
+- Test viewports: 390px (mobile), 768px (tablet), 1440px (desktop) — separate from CSS breakpoints
+- Mobile-first CSS; desktop enhancements via `md:` and `lg:` modifiers
+- FilterPanel (desktop immediate) vs FilterDrawer (mobile deferred Apply) — defined behavior
+- No additional Stitch generation for responsive variants
+
+**Acceptance Criteria (met):**
+- All 4 pages have responsive specifications ✓
+- All shared components have desktop/tablet/mobile behavior defined ✓
+- FilterDrawer behavior (focus trap, Apply action, state) documented ✓
+- Responsive acceptance criteria added to `plan_frontend_testing.md` ✓
+- Validation at implementation (not from static files) ✓
 
 ---
 
