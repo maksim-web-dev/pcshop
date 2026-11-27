@@ -10,9 +10,12 @@
 
 | File | Description | Status |
 |------|-------------|--------|
-| `v1-generated.png` | Stitch screenshot — 1440px desktop | Not yet generated |
-| `v1-code.html` | Stitch HTML source output | Not yet generated |
-| `v1-prompt.md` | Prompt used for V1 generation | Not yet generated |
+| `v1-generated.png` | Stitch screenshot — 505 × 758 px | ✓ Generated |
+| `v1-code.html` | Stitch HTML source output — 601 lines | ✓ Generated |
+| `v1-prompt.md` | Prompt used for V1 generation | ✓ Saved |
+| `approved-design-guidance.md` | Normalized design guidance for implementation | ✓ Created |
+
+**Approval status:** Conditionally approved — 63/65 — awaiting human sign-off
 
 ---
 

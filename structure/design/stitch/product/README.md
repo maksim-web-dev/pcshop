@@ -141,8 +141,11 @@ The `backend-capabilities.md` file documents all verified API endpoints used by 
 
 ## Status
 
-| Theme | Prompt | Generated | Reviewed | Approved |
-|-------|:------:|:---------:|:--------:|:--------:|
-| Premium Minimalism | ✓ | — | — | — |
-| Gaming & Technology | ✓ | — | — | — |
-| Modern Technology Store | ✓ | — | — | — |
+| Theme | Prompt | Generated | Score | Reviewed | Approved |
+|-------|:------:|:---------:|:-----:|:--------:|:--------:|
+| Premium Minimalism | ✓ | ✓ 400×751 | 55/65 | ✓ | Pending sign-off |
+| Gaming & Technology | ✓ | ✓ 462×757 | 60/65 | ✓ | Pending sign-off |
+| Modern Technology Store | ✓ | ✓ 505×758 | 63/65 | ✓ | Pending sign-off |
+
+**Review report:** `review-v1.md`  
+**V2 generation recommended:** No — all issues are implementation-time corrections.
