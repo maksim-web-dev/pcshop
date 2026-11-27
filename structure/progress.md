@@ -22,6 +22,9 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Task 1.5.1 | prompt12 | CatalogPage design prep: backend capabilities, mock dataset, 3 Stitch prompts, review checklist | **Completed** |
 | Task 1.5.2 | prompt13 (manual) | Google Stitch CatalogPage generation — 3 themes generated | **Completed** |
 | Task 1.5.3 | prompt14 | CatalogPage design review: 13-dimension evaluation, approved-design-guidance files, review report | **Completed — awaiting human sign-off** |
+| Task 1.6.1 | prompt15 | ProductPage design prep: backend capabilities, mock data, shared spec, 3 Stitch prompts, review checklist, README files | **Completed — awaiting Google Stitch generation** |
+| Task 1.6.2 | prompt16 (manual) | Google Stitch ProductPage generation — 3 themes to generate | **Pending** |
+| Task 1.6.3 | prompt17 | ProductPage design review: 13-dimension evaluation, approved-design-guidance files, review report | **Pending** |
 
 ### Task 1.2 — Review Findings Addressed (in Task 1.3)
 
@@ -42,8 +45,8 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Step 1 | Define visual requirements for all three themes | **Reviewed — minor findings addressed** |
 | Step 2 | Collect visual references (moodboards) | **Accepted as sufficient** (9 verified refs; original 24-ref target not met; shortlist accepted for initial generation) |
 | Step 3 | Generate HomePage concepts via Google Stitch | **V2 conditionally approved** — awaiting human sign-off; approved-design-guidance prepared; HomePage baseline created |
-| Step 4 | Generate CatalogPage concepts | **V1 conditionally approved** — all 3 themes generated; 13-dimension review complete (Premium 56/65, Gaming 60/65, Professional 56/65); approved-design-guidance prepared; awaiting human sign-off |
-| Step 5 | Generate ProductPage concepts | Pending |
+| Step 4 | Generate CatalogPage concepts | **V1 conditionally approved** — all 3 themes generated; 13-dimension review complete (Premium 56/65, Gaming 60/65, Professional 62/65¹); approved-design-guidance prepared; awaiting human sign-off |
+| Step 5 | Generate ProductPage concepts | **Prompts ready** — backend capabilities verified; mock data prepared; 3 Stitch prompts written; review checklist prepared; awaiting Google Stitch generation |
 | Step 6 | Define NotFoundPage design *(Google Stitch optional for this step)* | Pending |
 | Step 7 | Generate responsive design variants | Pending |
 | Step 8 | Create shared Design System specification | Pending |
@@ -83,7 +86,8 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Item | Blocks | Action required |
 |------|--------|----------------|
 | Human design approval of HomePage V2 designs | Design Step 12 final sign-off; React implementation start | Review `review-v2.md` and `approved-design-guidance.md` for each homepage theme; sign off or request V3 |
-| Human design approval of CatalogPage V1 designs | Design Step 4 completion; ProductPage prompt preparation | Review `catalog/review-v1.md` and `catalog/{theme}/approved-design-guidance.md`; sign off or request V2; note open M1 (Premium search form) |
+| Human design approval of CatalogPage V1 designs | Design Step 4 completion | Review `catalog/review-v1.md` and `catalog/{theme}/approved-design-guidance.md`; sign off or request V2; note open M1 (Premium search form) |
+| Human Google Stitch generation (ProductPage) | Task 1.6.2; Design Step 5 | Use prompts in `structure/design/stitch/product/`; follow generation guide in `product/README.md`; save artifacts to `{theme}/v1-generated.png`, `v1-code.html` |
 | Premium CatalogPage search form decision (M1) | Premium CatalogPage implementation | Decide: visible search input across Premium pages (catalog usability) vs icon-only (matches homepage spec); recorded in `catalog/premium/approved-design-guidance.md §7` |
 | Premium product count decision (4 vs 6) | Implementation specification | Proposed resolution: 6 products (pending human approval); documented in `home.md §7.1` |
 | Review decisions from prompt12 approval | home.md, mock-products.md, gaming guidance | 5 decisions documented as pending human sign-off; recorded in `result12.md §2` |
@@ -107,6 +111,13 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 - CatalogPage review checklist: `structure/design/stitch/catalog/review-checklist.md`
 - CatalogPage V1 review report: `structure/design/stitch/catalog/review-v1.md`
 - CatalogPage approved-design-guidance: `structure/design/stitch/catalog/{theme}/approved-design-guidance.md`
+- ProductPage backend capabilities: `structure/design/stitch/product/backend-capabilities.md`
+- ProductPage shared specification: `structure/design/pages/product.md`
+- ProductPage mock data: `structure/design/stitch/product/mock-product.md`
+- ProductPage Stitch prompts: `structure/design/stitch/product/{theme}-prompt.md`
+- ProductPage review checklist: `structure/design/stitch/product/review-checklist.md`
+- ProductPage generation guide: `structure/design/stitch/product/README.md`
+- ¹ Professional CatalogPage score: §12 of `result14.md` incorrectly shows 56/65; correct total per individual scores is 62/65 (see correction note in `result14.md §16` and authoritative `review-v1.md`)
 - All proposed color, font, and spacing values remain **draft — requiring human approval**
 - Design token global definition (Step 9) pending — do not finalize CSS custom properties yet
 - No frontend code has been written

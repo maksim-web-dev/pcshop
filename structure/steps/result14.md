@@ -256,3 +256,20 @@ All 14 sections of `prompt14.md` have been executed:
 - ✓ Execution report written (`result14.md`)
 
 **Stop: Waiting for human approval before proceeding to ProductPage design (Task 1.5.4).**
+
+---
+
+## Correction Note (added 2026-11-27 during prompt15 execution)
+
+**Subject:** Modern Technology Store (Professional) CatalogPage V1 score in §12 summary table.
+
+**Error in §12:** The summary table shows `Modern Technology Store | 56 / 65`. This is incorrect.
+
+**Correct value:** The individual dimension scores in §4 sum to **62 / 65** (5+5+5+5+4+5+5+4+5+5+4+5+5 = 62). The §4 table itself is correct. The §12 summary table has a copy-paste error.
+
+**Affected files:**
+- `result14.md §12` — this note — do not rewrite; note added instead
+- `structure/design/stitch/catalog/professional/approved-design-guidance.md` — states 56/65; also affected by this error (the correct total is 62/65)
+- `structure/design/stitch/catalog/review-v1.md` — correctly states 62/65; this file is authoritative
+
+**Action taken:** Correction documented here. Historical text in §12 is preserved verbatim. The authoritative score for the Modern Technology Store CatalogPage V1 is **62 / 65**, as recorded in `review-v1.md`.
