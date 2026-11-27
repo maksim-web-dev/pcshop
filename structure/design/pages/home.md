@@ -74,6 +74,8 @@ The following are **not in scope** and must not be added:
 | Search visibility | Icon-only (not always-visible) | Icon-only | Always-visible input field |
 | Header border | 1px `#E5E0DB` bottom | None (absorbed into dark surface) | Scroll shadow |
 
+**Search discoverability note (review decision 2026-11-27):** Search must remain discoverable and functionally equivalent across all three themes even though the visual treatment differs. Gaming and Premium use an icon-only search toggle — the icon must be clearly visible and keyboard-accessible. Professional uses an always-visible input. All three must support the same search query flow. This decision is pending human approval.
+
 ---
 
 ## 4. ThemeSwitcher
@@ -149,14 +151,23 @@ The ThemeSwitcher component is present in the header on **every page** in all th
 - 6 products displayed across all three themes (see section 7.1 for Premium decision)
 - Each product card shows (see section 8): image, name, price, badges, availability, CTA
 
-### 7.1 Premium product count decision pending
+### 7.1 Premium product count — proposed resolution
 
-The original specification (`mock-products.md`) defined Premium as showing 4 products for editorial restraint. The V2 generation shows 6 products. This is an open decision for the project owner:
+**Proposed resolution (pending human approval):** Display 6 featured products in every theme, including Premium.
 
-- **Option A (6 products):** Full parity with Gaming and Professional. Simpler implementation. V2 design quality is acceptable.
-- **Option B (4 products, editorial):** Preserves original restraint rationale — a 1-row-of-4 or 2-rows-of-2 layout with generous spacing per product. Requires a separate product count configuration per theme.
+Rationale:
+- All three V2 designs already show 6 products — the design quality is acceptable with 6 in Premium
+- Functional parity across themes simplifies both the design specification and the React implementation
+- The editorial restraint of Premium is preserved through generous 24px card gaps and 80px page gutters, not by reducing product count
 
-**Default for implementation: 6 products** unless the project owner explicitly chooses 4.
+The original specification (`mock-products.md`) defined Premium as showing 4 products. That specification has been updated to reflect 6 products, consistent with the V2 design result.
+
+**This resolution is pending explicit project owner approval.** If the owner prefers 4 products (original editorial restraint), the following alternative applies:
+- 1-row of 4 cards with generous spacing per product
+- Requires separate product count configuration for the Premium theme in React
+- Requires a separate `mock-products.md` configuration for the homepage design
+
+**Record of review decision:** This resolution was proposed as part of Task 1.5.1 (prompt12) on 2026-11-27 and has not yet received human sign-off.
 
 ---
 

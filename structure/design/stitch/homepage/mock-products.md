@@ -107,11 +107,12 @@ Each theme shows 2–3 badges per product card. Badge text is identical; visual 
 
 | Theme | Products shown | Grid layout |
 |-------|---------------|-------------|
-| Premium Minimalism | 4 (Products 1–4) | 3-column, editorial spacing |
-| Gaming & Technology | 6 (all) | 4-column, dense |
+| Premium Minimalism | 6 (all) — see note | 3-column, 2 rows, generous spacing |
+| Gaming & Technology | 6 (all) | 3-column, balanced |
 | Modern Technology Store | 6 (all) | 3-column, balanced |
 
-The premium theme deliberately shows fewer products to preserve editorial spaciousness.
+**Premium product count — updated 2026-11-27 (pending human approval):**  
+The original specification defined Premium as showing 4 products for editorial restraint. The V2 generation shows 6 products (3-column × 2-row grid). The proposed resolution is 6 products for all three themes, achieving functional parity while preserving the Premium editorial identity through generous spacing (24px card gap, 80px gutters). This change is documented in `home.md §7.1` and is pending explicit project owner sign-off. If the owner chooses 4 products, revert this entry to "4 (Products 1–4) | 3-column or 4-column, 1 row".
 
 ---
 

@@ -11,14 +11,15 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 |---------|--------|-------------|--------|
 | Task 1.1 | prompt01 | Update PCShop project specifications — multi-theme, AI workflow, roadmap | **Completed** |
 | Task 1.2 | prompt02 | Define visual requirements for three themes | **Reviewed — minor findings addressed** |
-| Task 1.3 | prompt03 | Collect visual references and prepare moodboards | **Awaiting reference collection** |
-| Task 1.3.1 | prompt05 | Playwright MCP integration + visual reference screenshot collection | **Awaiting human review** |
+| Task 1.3 | prompt03 | Collect visual references and prepare moodboards | **Accepted as sufficient** (9 verified refs; original 24-ref target not met; shortlist accepted for initial Stitch generation) |
+| Task 1.3.1 | prompt05 | Playwright MCP integration + visual reference screenshot collection | **Completed** — 9 usable refs captured; moodboards updated; Firefox MCP configured |
 | Task 1.4.1 | prompt06 | Prepare Google Stitch HomePage generation (3 prompts + review checklist + usage guide) | **Completed** |
 | Task 1.4.1 (rev) | prompt07 | Stitch prompt corrections: shared mock data, scope cleanup, review criteria update | **Completed** |
 | Task 1.4.2 | prompt08 | Manual Google Stitch generation — 3 themes generated | **Completed** |
 | Task 1.4.3 | prompt09 | AI design review + revision prompts prepared | **Completed** |
 | Task 1.4.4 | prompt10 | Manual V2 refinement in Stitch (run by human) | **Completed** |
 | Task 1.4.5 | prompt11 | Final review, approved-design-guidance files, HomePage baseline | **Completed** |
+| Task 1.5.1 | prompt12 | CatalogPage design prep: backend capabilities, mock dataset, 3 Stitch prompts, review checklist | **Completed** |
 
 ### Task 1.2 — Review Findings Addressed (in Task 1.3)
 
@@ -39,7 +40,7 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Step 1 | Define visual requirements for all three themes | **Reviewed — minor findings addressed** |
 | Step 2 | Collect visual references (moodboards) | **Accepted as sufficient** (9 verified refs; original 24-ref target not met; shortlist accepted for initial generation) |
 | Step 3 | Generate HomePage concepts via Google Stitch | **V2 conditionally approved** — awaiting human sign-off; approved-design-guidance prepared; HomePage baseline created |
-| Step 4 | Generate CatalogPage concepts | Pending |
+| Step 4 | Generate CatalogPage concepts | **Prompts prepared** — 3 Stitch prompts ready; backend capabilities documented; mock dataset created; review checklist prepared; manual generation pending |
 | Step 5 | Generate ProductPage concepts | Pending |
 | Step 6 | Define NotFoundPage design *(Google Stitch optional for this step)* | Pending |
 | Step 7 | Generate responsive design variants | Pending |
@@ -65,7 +66,7 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 
 | Phase | Description | Status |
 |-------|-------------|--------|
-| Roadmap Phase 1 | Specification & AI Design | In progress (Step 2: 15/24 refs collected; Step 3 blocked on approval) |
+| Roadmap Phase 1 | Specification & AI Design | In progress (Step 2: 9 refs accepted; Step 3: V2 awaiting human approval; Step 4: CatalogPage prompts ready, manual generation pending) |
 | Roadmap Phase 2 | AI Development Environment | In progress — Playwright MCP configured; Firefox browser installed; MCP docs created |
 | Roadmap Phase 3 | Frontend Foundation | Pending |
 | Roadmap Phase 4 | Shared UI Components | Pending |
@@ -80,7 +81,9 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Item | Blocks | Action required |
 |------|--------|----------------|
 | Human design approval of V2 designs | Design Step 12 final sign-off; React implementation start | Review `review-v2.md` and `approved-design-guidance.md` for each theme; sign off or request V3 |
-| Premium product count decision (4 vs 6) | Implementation specification | Project owner decides: editorial 4 or functional parity 6 (default: 6 per V2 result) |
+| CatalogPage manual generation in Stitch | Design Step 4 completion | Generate CatalogPage in each of 3 Stitch projects using prompts in `catalog/{theme}-prompt.md`; export to `catalog/{theme}/` |
+| Premium product count decision (4 vs 6) | Implementation specification | Proposed resolution: 6 products (pending human approval); documented in `home.md §7.1` |
+| Review decisions from prompt12 approval | home.md, mock-products.md, gaming guidance | 5 decisions documented as pending human sign-off; recorded in `result12.md §2` |
 | Playwright MCP browser config needs new session | MCP tools in future sessions | `.mcp.json` updated to `--browser firefox`; takes effect on next Claude Code restart |
 
 ---
@@ -94,6 +97,11 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 - HomePage V2 approved-design-guidance: `structure/design/stitch/homepage/{theme}/approved-design-guidance.md`
 - HomePage shared baseline: `structure/design/pages/home.md`
 - V2 review scores and evidence: `structure/design/stitch/homepage/review-v2.md`
+- CatalogPage backend capabilities: `structure/design/stitch/catalog/backend-capabilities.md`
+- CatalogPage shared specification: `structure/design/pages/catalog.md`
+- CatalogPage mock products: `structure/design/stitch/catalog/mock-products.md`
+- CatalogPage Stitch prompts: `structure/design/stitch/catalog/{theme}-prompt.md`
+- CatalogPage review checklist: `structure/design/stitch/catalog/review-checklist.md`
 - All proposed color, font, and spacing values remain **draft — requiring human approval**
 - Design token global definition (Step 9) pending — do not finalize CSS custom properties yet
 - No frontend code has been written

@@ -42,10 +42,18 @@ PCShop Gaming & Technology targets gamers, PC builders, and hardware enthusiasts
 | `secondary` | `#22D3EE` | Nav hover underline, spec badges, focus rings, availability |
 | `outline` | `#1E1E2E` | Card borders, section dividers |
 
-**Forbidden colors:** red, green, yellow, orange, blue, white backgrounds.  
-**Green is specifically forbidden** — it conflicts with the purple/cyan-only accent discipline.  
+**Forbidden decorative colors:** red, green, yellow, orange, blue, white backgrounds.  
+**Green is forbidden as a decorative accent** — it conflicts with the purple/cyan-only accent discipline.  
 **Availability must use cyan `#22D3EE`**, never `#059669` or any green variant.  
 **Two accent colors only:** Purple for primary actions, Cyan for active/focus states and spec text.
+
+**Semantic color clarification (review decision 2026-11-27, pending human approval):**  
+The prohibition on green and other decorative colors applies to brand accent usage only. It does not prohibit accessible semantic colors when they carry a specific UI system meaning distinct from the decorative palette:
+- Error states (form validation failures): red `#EF4444` / `#B91C1C` is permitted in error messages
+- Warning states (low stock warnings): amber/yellow is permitted in warning notices
+- Success states for commerce actions (order confirmed, item added): green `#059669` is permitted in success toasts
+
+These semantic uses must be clearly constrained to system feedback messages — not used as decorative accents on product cards or in navigation. Product card availability must still use cyan `#22D3EE`.
 
 ### Typography
 
