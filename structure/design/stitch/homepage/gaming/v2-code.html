@@ -1,0 +1,546 @@
+<!DOCTYPE html><html lang="en" class="dark"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PCShop — Gaming &amp; Performance Hardware</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'primary': '#8B5CF6',
+        'on-primary': '#0A0A0F',
+        'primary-dark': '#6D3BD7',
+        'on-primary-dark': '#F0F0FF',
+        'primary-deep': '#5516BE',
+        'on-primary-deep': '#F0F0FF',
+        'primary-tint': '#1D1635',
+        'on-primary-tint': '#22D3EE',
+        'secondary': '#22D3EE',
+        'on-secondary': '#0A0A0F',
+        'surface': '#0A0A0F',
+        'on-surface': '#F0F0FF',
+        'surface-hero': '#12101F',
+        'on-surface-hero': '#F0F0FF',
+        'surface-card': '#111118',
+        'on-surface-card': '#F0F0FF',
+        'surface-elevated': '#16161E',
+        'on-surface-elevated': '#F0F0FF',
+        'surface-footer': '#070708',
+        'on-surface-footer': '#A0A0C0',
+        'on-surface-variant': '#A0A0C0',
+        'muted': '#8585A3',
+        'outline': '#1E1E2E',
+      },
+      borderRadius: {
+        'xs': '3px',
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'lg': '12px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '20px',
+        'gutter-xl': '32px',
+        'section': '56px',
+        'page-margin': '60px',
+        'hero-py': '80px',
+      },
+      fontFamily: {
+        'display': ['"Rajdhani"', 'sans-serif'],
+        'headline': ['"Rajdhani"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+        'caption': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['72px', { lineHeight: '76px', letterSpacing: '2.88px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '36px', letterSpacing: '1.28px', fontWeight: '700' }],
+        'headline-lg': ['32px', { lineHeight: '38px', letterSpacing: '0.64px', fontWeight: '600' }],
+        'headline-md': ['20px', { lineHeight: '26px', letterSpacing: '0.4px', fontWeight: '700' }],
+        'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '700' }],
+        'title-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['16px', { lineHeight: '20px', letterSpacing: '0.8px', fontWeight: '700' }],
+        'label-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '600' }],
+        'caption': ['11px', { lineHeight: '14px', letterSpacing: '0.2px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '200ms',
+        'surface-exit': '120ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Rajdhani:wght@600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased selection:bg-primary selection:text-on-primary">
+  <div class="min-h-[1024px] flex flex-col bg-surface text-on-surface" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Sticky Header (64px) -->
+    <header id="site-header" class="sticky top-0 z-50 h-16 w-full bg-surface/90 backdrop-blur-md border-b border-outline">
+      <div class="max-w-[1440px] mx-auto h-full px-gutter-md lg:px-page-margin flex items-center justify-between gap-gutter-lg">
+
+        <!-- Left: PCShop Wordmark -->
+        <a href="#" class="flex items-center gap-gutter-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-sm px-gutter-xs py-gutter-xs">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="shrink-0">
+            <polygon points="3,4 14,4 19,9 19,20 14,20 14,10 8,10 8,20 3,20" fill="#22D3EE"></polygon>
+            <polygon points="10,13 21,13 21,20 16,20 16,17 10,17" fill="#8B5CF6"></polygon>
+          </svg>
+          <span class="font-headline text-headline-md text-on-surface tracking-wider" data-design-text-token="headline-md">PCShop</span>
+        </a>
+
+        <!-- Center: Primary Navigation -->
+        <nav aria-label="Primary categories" class="hidden md:flex items-center gap-gutter-xl">
+          <a href="#categories" class="relative py-gutter-xs font-label text-label-md text-secondary border-b-2 border-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+            <span data-design-text-token="label-md">Laptops</span>
+          </a>
+          <a href="#products" class="relative py-gutter-xs font-label text-label-md text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+            <span data-design-text-token="label-md">PCs</span>
+          </a>
+          <a href="#products" class="relative py-gutter-xs font-label text-label-md text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+            <span data-design-text-token="label-md">Monitors</span>
+          </a>
+          <a href="#products" class="relative py-gutter-xs font-label text-label-md text-on-surface-variant hover:text-secondary border-b-2 border-transparent hover:border-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+            <span data-design-text-token="label-md">Peripherals</span>
+          </a>
+        </nav>
+
+        <!-- Right: Search, Cart, ThemeSwitcher -->
+        <div class="flex items-center gap-gutter-md">
+          <!-- Visible Search Bar -->
+          <label class="hidden sm:flex items-center gap-gutter-sm h-9 w-56 px-gutter-sm rounded border border-outline bg-surface-card text-on-surface-variant focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-title-sm text-on-surface-variant" aria-hidden="true">search</span>
+            <input type="search" placeholder="Search hardware..." aria-label="Search hardware" class="w-full bg-transparent border-0 p-0 font-label text-label-sm text-on-surface placeholder:text-muted focus:ring-0 focus:outline-none">
+          </label>
+
+          <!-- Cart Button with Purple Count Badge -->
+          <button id="cart-button" data-component-id="button-icon-cart" data-component-type="button" data-component-variant="icon" type="button" aria-label="Shopping cart, 2 items" class="relative inline-flex items-center justify-center w-10 h-10 rounded text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+            <span class="material-symbols-outlined text-title-md" aria-hidden="true">shopping_cart</span>
+            <!-- COMPONENT: badge-numeric -->
+            <span id="cart-count-badge" data-component-id="badge-numeric" data-component-type="badge" data-component-variant="numeric" aria-hidden="true" class="absolute top-0 right-0 inline-flex items-center justify-center min-w-5 h-5 px-gutter-xs rounded-full bg-primary text-on-primary font-label text-label-sm tabular-nums">
+              <span id="cart-count-text" data-design-text-token="label-sm">2</span>
+            </span>
+          </button>
+
+          <!-- ThemeSwitcher -->
+          <div class="relative">
+            <button id="theme-switcher-btn" type="button" aria-expanded="false" aria-haspopup="menu" class="inline-flex items-center gap-gutter-xs h-9 px-gutter-sm rounded border border-outline bg-surface-card text-on-surface-variant hover:text-secondary hover:border-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+              <span class="font-label text-label-sm" data-design-text-token="label-sm">Gaming</span>
+              <span class="material-symbols-outlined text-title-sm" aria-hidden="true">expand_more</span>
+            </button>
+            <div id="theme-switcher-menu" role="menu" class="hidden absolute right-0 mt-gutter-sm w-40 rounded bg-surface-card border border-outline py-gutter-xs shadow-[0_8px_24px_rgba(0,0,0,0.6)] z-50">
+              <button type="button" role="menuitem" class="w-full text-left px-gutter-md py-gutter-sm font-label text-label-sm text-on-surface-variant hover:text-secondary hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change">
+                <span data-design-text-token="label-sm">Premium</span>
+              </button>
+              <button type="button" role="menuitem" class="w-full text-left px-gutter-md py-gutter-sm font-label text-label-sm text-secondary bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary flex items-center justify-between">
+                <span data-design-text-token="label-sm">Gaming</span>
+                <span class="material-symbols-outlined text-title-sm" aria-hidden="true">check</span>
+              </button>
+              <button type="button" role="menuitem" class="w-full text-left px-gutter-md py-gutter-sm font-label text-label-sm text-on-surface-variant hover:text-secondary hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change">
+                <span data-design-text-token="label-sm">Professional</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+      <!-- Hero Banner (580px tall) -->
+      <section class="relative w-full min-h-[580px] bg-gradient-to-br from-surface via-surface to-surface-hero overflow-hidden flex items-center">
+        <div class="max-w-[1440px] w-full mx-auto px-gutter-md lg:px-page-margin py-hero-py grid grid-cols-1 lg:grid-cols-12 items-center gap-gutter-xl">
+
+          <!-- Left 40% (5 of 12 cols) -->
+          <div class="lg:col-span-5 flex flex-col items-start gap-gutter-lg z-10">
+            <!-- COMPONENT: typography-display -->
+            <h1 data-component-id="typography-display" data-component-type="typography" data-component-variant="display" data-design-text-token="display-lg" class="font-display text-display-lg-mobile lg:text-display-lg uppercase text-on-surface text-balance">DOMINATE YOUR BUILD</h1>
+
+            <!-- COMPONENT: typography-body -->
+            <p data-component-id="typography-body" data-component-type="typography" data-component-variant="body" data-design-text-token="body-md" class="font-body text-body-md text-on-surface-variant text-pretty max-w-prose">Next-gen gaming laptops. No compromises.</p>
+
+            <!-- COMPONENT: button-primary -->
+            <a href="#products" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="inline-flex items-center justify-center h-11 px-gutter-xl rounded bg-gradient-to-r from-primary-dark to-primary-deep text-on-primary-dark font-headline text-label-lg uppercase tracking-wider shadow-[0_0_24px_rgba(139,92,246,0.35)] hover:from-primary hover:to-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+              <span data-design-text-token="label-lg">Shop Laptops</span>
+            </a>
+          </div>
+
+          <!-- Right 60% (7 of 12 cols) -->
+          <div class="lg:col-span-7 relative flex items-center justify-end">
+            <div class="relative w-full rounded overflow-hidden">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrBJF67HvuZppWifxg9c2hjlqvMij3zMGlDVKn5YJUwpSFp_ghOX2frcwZ0AHp6nlR_G3ldanm6fbc_VyQnfmR_NCwjT-znn1hho9JHA-ksaKepGRP263cTENAz2SL_DrcsPrgMlibIzwOhl5iajRHuI6Ssb0nBqHj3T4-016kblPnO5BHl4rht89OX_ba4A3sARi3rlE_m3SYvkHyDTH-08qv64Um1kaUOmIHazIOvutoIDxTi9qX8OZn5U" alt="Flagship matte-black gaming laptop with purple and cyan backlit keyboard on a dark studio background" class="w-full h-[360px] lg:h-[440px] object-cover object-center rounded">
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-surface via-transparent to-transparent"></div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Decorative Thin Accent Line -->
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-primary via-secondary to-transparent"></div>
+      </section>
+
+      <!-- Featured Categories -->
+      <section id="categories" class="max-w-[1440px] mx-auto px-gutter-md lg:px-page-margin pt-section">
+        <div class="mb-gutter-xl">
+          <h2 data-component-id="typography-section" data-component-type="typography" data-component-variant="headline" data-design-text-token="headline-lg" class="font-headline text-headline-lg uppercase text-on-surface">SHOP BY CATEGORY</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter-lg items-stretch">
+          <!-- Category 1 -->
+          <!-- COMPONENT: card-interactive -->
+          <a href="#products" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="group h-full flex flex-col bg-surface-card border border-outline rounded overflow-hidden hover:border-primary hover:shadow-[0_0_24px_rgba(139,92,246,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+            <div class="w-full h-44 bg-surface overflow-hidden">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrDHTi-Hqni_2tl46IGmlfVA1yjCb4wy6W8KPn_8pEHL2UXnOAsnqDDYhSjRUYBkc6PAsfjDDmY2Hv5UaQMIWEK_VYIprf3yEkrrzmSNXD1TzAAcQ8GCWA12grAvRew40EEmfrceBxcWp1OZq_Tj1MwONbM_G_5KWHR_zjHSvVXrZX9DCehNjEo_j7dmFHy0FuK5ov5UdszfPV-lIP8P6DRTPTqJ2Fn_8VJvjYR4ILsKoab0P6DFoQfM3IvWiA" alt="Gaming Laptops" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-surface-enter ease-surface-enter">
+            </div>
+            <div class="p-gutter-md flex items-center justify-between">
+              <h3 class="font-headline text-headline-md text-on-surface-card group-hover:text-secondary transition-colors duration-state-change" data-design-text-token="headline-md">Gaming Laptops</h3>
+              <span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary text-title-md" aria-hidden="true">arrow_forward</span>
+            </div>
+          </a>
+
+          <!-- Category 2 -->
+          <a href="#products" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="group h-full flex flex-col bg-surface-card border border-outline rounded overflow-hidden hover:border-primary hover:shadow-[0_0_24px_rgba(139,92,246,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+            <div class="w-full h-44 bg-surface overflow-hidden">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrC-0-25345-csTRjWKX95tPPGj7hI6T-Zo8Gt4RtgVDHHPxXlnRsPUVLNr-rvveXCNtdHj76xAnz6yx4xjsIHzyVx3kxpwASKvajb-S_0yl-_GftUgWmI3nosTZXyZMJuuJbIWSyhCmr9ex3Sab2FM4e_NZ-1ueUFrTHhNgW4pe3m_fSU0ZjFPsAFxYq1gJ--7y6a3006qy0obbsyxEWQaQdCgu6IVAi-bXmMUYVte4UWHwiI07ZsHg" alt="Desktop PCs" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-surface-enter ease-surface-enter">
+            </div>
+            <div class="p-gutter-md flex items-center justify-between">
+              <h3 class="font-headline text-headline-md text-on-surface-card group-hover:text-secondary transition-colors duration-state-change" data-design-text-token="headline-md">Desktop PCs</h3>
+              <span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary text-title-md" aria-hidden="true">arrow_forward</span>
+            </div>
+          </a>
+
+          <!-- Category 3 -->
+          <a href="#products" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="group h-full flex flex-col bg-surface-card border border-outline rounded overflow-hidden hover:border-primary hover:shadow-[0_0_24px_rgba(139,92,246,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+            <div class="w-full h-44 bg-surface overflow-hidden">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrA2N9bjiIgM6xfK-Sx7wLmCCmFvbyz-_GtzM36PhvHbFYcSaNuJxnmZQEYofGK9nN4K8Is1a3dOlwKSBDynZ8z9OWYfyioeioK7doT8XG8ZfKHx-3SOnM1IHeOE56LxToFJYscvTvAK8zELzIJXL88Ff-f3iSLo7eYUJ2yxXn17Z7koi11nS40Xxe1C7z1jwpgL7xXGpgyuQrHN0-Wv_tF5Afx8p9e9ABpz0Cm1Fdr7ujsDSU73" alt="Monitors" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-surface-enter ease-surface-enter">
+            </div>
+            <div class="p-gutter-md flex items-center justify-between">
+              <h3 class="font-headline text-headline-md text-on-surface-card group-hover:text-secondary transition-colors duration-state-change" data-design-text-token="headline-md">Monitors</h3>
+              <span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary text-title-md" aria-hidden="true">arrow_forward</span>
+            </div>
+          </a>
+
+          <!-- Category 4 -->
+          <a href="#products" data-component-id="card-interactive" data-component-type="card" data-component-variant="interactive" class="group h-full flex flex-col bg-surface-card border border-outline rounded overflow-hidden hover:border-primary hover:shadow-[0_0_24px_rgba(139,92,246,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+            <div class="w-full h-44 bg-surface overflow-hidden">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrBow4PsgFWI1EqL0g9zaA1onHFYYYGhBYk7e2Mgo-i2nxIeWAt2u_ODNz5IWUujWhEVt1_NKdRKnBcFSQaFxI1wk_NHUJMhvsej8ujl3GjedLQVmcmmFYGrQNA8hLG4nAr0fM7-3_7qNEQlxZlKocj8-FGpILr0U2lODZhrhVvq-PKDButwn3wdGcSi9O1IQBXFgaqWQezHDJ9CcC74oy7DkE9C4wp5f7dqjvExu6-eD72za49mOpvucA" alt="Peripherals" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-surface-enter ease-surface-enter">
+            </div>
+            <div class="p-gutter-md flex items-center justify-between">
+              <h3 class="font-headline text-headline-md text-on-surface-card group-hover:text-secondary transition-colors duration-state-change" data-design-text-token="headline-md">Peripherals</h3>
+              <span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary text-title-md" aria-hidden="true">arrow_forward</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Top Products Grid -->
+      <section id="products" class="max-w-[1440px] mx-auto px-gutter-md lg:px-page-margin py-section">
+        <div class="mb-gutter-xl">
+          <h2 data-component-id="typography-section" data-component-type="typography" data-component-variant="headline" data-design-text-token="headline-lg" class="font-headline text-headline-lg uppercase text-on-surface">FEATURED HARDWARE</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter-lg items-stretch">
+
+          <!-- Product 1: APEX Gaming Laptop 15" -->
+          <!-- COMPONENT: card-action -->
+          <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="h-full flex flex-col justify-between bg-surface-card border border-outline rounded p-gutter-md hover:border-primary hover:shadow-[0_0_24px_rgba(139,92,246,0.35)] transition-colors duration-state-change ease-state-change">
+            <div class="flex flex-col gap-gutter-md">
+              <div class="relative w-full h-48 rounded-sm bg-surface overflow-hidden">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrAmtq64IdJBmqukpDYu5KHRLA27s5tK0ishIvgWr05w5W7Cm1EQY-gZQmfuUU6Ta922ObfjzGXfIIj8FrSSIOxNCzoRaq5CAINuoIItiImAzBGcPZldysjX8nQWHYeK20lFkQNsoTGENSnxfaJDwVTq0xas8EZQzfFBxhJ-wQLxDQ4zvPUdarM6q4L0xAeptlZ0-WYctg0Yo9OmhB87PzMk_UHcc7mHr4_5z2YsPodpNDEq1rIG4P9uIKg" alt="APEX Gaming Laptop 15 inch" class="w-full h-full object-cover object-center">
+                <span data-component-id="badge-category" data-component-type="badge" data-component-variant="status" class="absolute top-gutter-sm left-gutter-sm px-gutter-sm py-gutter-xs rounded-xs bg-surface/80 text-secondary font-caption text-caption">
+                  <span data-design-text-token="caption">Gaming Laptop</span>
+                </span>
+              </div>
+              <div class="flex flex-col gap-gutter-sm">
+                <h3 class="font-title text-title-sm text-on-surface-card" data-design-text-token="title-sm">APEX Gaming Laptop 15&#34;</h3>
+                <p class="font-title text-title-md text-on-surface-card tabular-nums" data-design-text-token="title-md">$1,799</p>
+                <div class="flex flex-wrap items-center gap-gutter-sm">
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">RTX 4070</span>
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">32 GB DDR5</span>
+                </div>
+                <div class="flex items-center gap-gutter-xs pt-gutter-xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                  <span class="font-caption text-caption text-secondary" data-design-text-token="caption">In stock</span>
+                </div>
+              </div>
+            </div>
+            <footer class="mt-gutter-md">
+              <button type="button" data-add-to-cart data-component-id="button-primary-full" data-component-type="button" data-component-variant="primary" class="w-full inline-flex items-center justify-center h-10 px-gutter-md rounded bg-gradient-to-r from-primary-dark to-primary-deep text-on-primary-dark font-headline text-label-lg uppercase hover:from-primary hover:to-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+                <span data-design-text-token="label-lg">Add to Cart</span>
+              </button>
+            </footer>
+          </article>
+
+          <!-- Product 2: NOVA Ultrabook 14" -->
+          <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="h-full flex flex-col justify-between bg-surface-card border border-outline rounded p-gutter-md hover:border-primary hover:shadow-[0_0_24px_rgba(139,92,246,0.35)] transition-colors duration-state-change ease-state-change">
+            <div class="flex flex-col gap-gutter-md">
+              <div class="relative w-full h-48 rounded-sm bg-surface overflow-hidden">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrAxlIWMUdGuZzRSJjNuz_ti6lTTnH78RnYsxeqixzRPv5XwUHrxhN6EP7aFDAKkxS2R9A2KBggfSRHz7jQzC7K4Ij1fzfPIaBM67UsHvqohn3t91InMsxxf39ZNBtTsQW9Y9yl2ufodUkuCtXq4Fn1y4eZCL-gnVtT6Eom7eKlJBVYyTASXMSHaTx11SesxBHZuZq3u0_dK_6fsf9hYqztmLFaj9w61M2hyUAbif759GBa86tSaSGmdJUKxx0E" alt="NOVA Ultrabook 14 inch" class="w-full h-full object-cover object-center">
+                <span data-component-id="badge-category" data-component-type="badge" data-component-variant="status" class="absolute top-gutter-sm left-gutter-sm px-gutter-sm py-gutter-xs rounded-xs bg-surface/80 text-secondary font-caption text-caption">
+                  <span data-design-text-token="caption">Ultrabook</span>
+                </span>
+              </div>
+              <div class="flex flex-col gap-gutter-sm">
+                <h3 class="font-title text-title-sm text-on-surface-card" data-design-text-token="title-sm">NOVA Ultrabook 14&#34;</h3>
+                <p class="font-title text-title-md text-on-surface-card tabular-nums" data-design-text-token="title-md">$1,199</p>
+                <div class="flex flex-wrap items-center gap-gutter-sm">
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">16 GB RAM</span>
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">512 GB SSD</span>
+                </div>
+                <div class="flex items-center gap-gutter-xs pt-gutter-xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                  <span class="font-caption text-caption text-secondary" data-design-text-token="caption">In stock</span>
+                </div>
+              </div>
+            </div>
+            <footer class="mt-gutter-md">
+              <button type="button" data-add-to-cart data-component-id="button-primary-full" data-component-type="button" data-component-variant="primary" class="w-full inline-flex items-center justify-center h-10 px-gutter-md rounded bg-gradient-to-r from-primary-dark to-primary-deep text-on-primary-dark font-headline text-label-lg uppercase hover:from-primary hover:to-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+                <span data-design-text-token="label-lg">Add to Cart</span>
+              </button>
+            </footer>
+          </article>
+
+          <!-- Product 3: TITAN PC Tower -->
+          <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="h-full flex flex-col justify-between bg-surface-card border border-outline rounded p-gutter-md hover:border-primary hover:shadow-[0_0_24px_rgba(139,92,246,0.35)] transition-colors duration-state-change ease-state-change">
+            <div class="flex flex-col gap-gutter-md">
+              <div class="relative w-full h-48 rounded-sm bg-surface overflow-hidden">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrC4KLib5b9UEFywl-ZeBKGfinUJJBr0-6RmXBBiPH4vDJDbh-aPZNAmk6nlNWVrTH_aauj7PFfcLE2hFese8-l-ZzCL9FhNqXlX8zHy4--Ad_mYEnnoQKobrVbh4pwRByzwZx8COgIVVYaHb8d0CDriQweC44ss0HnYZYbLdcVkSpNFj9dxLeSAtbJE4BIPE1whEw7_ZjtKiv-EEU3TVSznC9-ZWjf8a-o9vR7fNKNTxeJ5ufgogRKLHA" alt="TITAN PC Tower" class="w-full h-full object-cover object-center">
+                <span data-component-id="badge-category" data-component-type="badge" data-component-variant="status" class="absolute top-gutter-sm left-gutter-sm px-gutter-sm py-gutter-xs rounded-xs bg-surface/80 text-secondary font-caption text-caption">
+                  <span data-design-text-token="caption">Desktop PC</span>
+                </span>
+              </div>
+              <div class="flex flex-col gap-gutter-sm">
+                <h3 class="font-title text-title-sm text-on-surface-card" data-design-text-token="title-sm">TITAN PC Tower</h3>
+                <p class="font-title text-title-md text-on-surface-card tabular-nums" data-design-text-token="title-md">$2,499</p>
+                <div class="flex flex-wrap items-center gap-gutter-sm">
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">RTX 4080</span>
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">64 GB DDR5</span>
+                </div>
+                <div class="flex items-center gap-gutter-xs pt-gutter-xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                  <span class="font-caption text-caption text-secondary" data-design-text-token="caption">In stock</span>
+                </div>
+              </div>
+            </div>
+            <footer class="mt-gutter-md">
+              <button type="button" data-add-to-cart data-component-id="button-primary-full" data-component-type="button" data-component-variant="primary" class="w-full inline-flex items-center justify-center h-10 px-gutter-md rounded bg-gradient-to-r from-primary-dark to-primary-deep text-on-primary-dark font-headline text-label-lg uppercase hover:from-primary hover:to-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+                <span data-design-text-token="label-lg">Add to Cart</span>
+              </button>
+            </footer>
+          </article>
+
+          <!-- Product 4: NEXUS Monitor 32" -->
+          <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="h-full flex flex-col justify-between bg-surface-card border border-outline rounded p-gutter-md hover:border-primary hover:shadow-[0_0_24px_rgba(139,92,246,0.35)] transition-colors duration-state-change ease-state-change">
+            <div class="flex flex-col gap-gutter-md">
+              <div class="relative w-full h-48 rounded-sm bg-surface overflow-hidden">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrBalt1hdwoPUypiuvX1WebRlVMQLodBw_rtAkQZLfw_lm7Q0SiXPBclFJoB8GIocVxqorQpAOkCPo1oBXekUuDUx6lr7AbCY0K5bj-62ib0_RAVfbn3CsfRxHrkdkw7ilszmEABJqUo8vx3uRSc1D-AQzl_hx_SKO6_M6kbOVpWy-E_6naEgAmCxNi3Xz-AgblmgjZ17WBAuOcSO2tjtb0BnKC7ZsYj79BB9r4fd3H9KhXcrHoXKa5bGnE08A" alt="NEXUS Monitor 32 inch" class="w-full h-full object-cover object-center">
+                <span data-component-id="badge-category" data-component-type="badge" data-component-variant="status" class="absolute top-gutter-sm left-gutter-sm px-gutter-sm py-gutter-xs rounded-xs bg-surface/80 text-secondary font-caption text-caption">
+                  <span data-design-text-token="caption">Monitor</span>
+                </span>
+              </div>
+              <div class="flex flex-col gap-gutter-sm">
+                <h3 class="font-title text-title-sm text-on-surface-card" data-design-text-token="title-sm">NEXUS Monitor 32&#34;</h3>
+                <p class="font-title text-title-md text-on-surface-card tabular-nums" data-design-text-token="title-md">$799</p>
+                <div class="flex flex-wrap items-center gap-gutter-sm">
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">240 Hz</span>
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">QHD</span>
+                </div>
+                <div class="flex items-center gap-gutter-xs pt-gutter-xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                  <span class="font-caption text-caption text-secondary" data-design-text-token="caption">In stock</span>
+                </div>
+              </div>
+            </div>
+            <footer class="mt-gutter-md">
+              <button type="button" data-add-to-cart data-component-id="button-primary-full" data-component-type="button" data-component-variant="primary" class="w-full inline-flex items-center justify-center h-10 px-gutter-md rounded bg-gradient-to-r from-primary-dark to-primary-deep text-on-primary-dark font-headline text-label-lg uppercase hover:from-primary hover:to-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+                <span data-design-text-token="label-lg">Add to Cart</span>
+              </button>
+            </footer>
+          </article>
+
+          <!-- Product 5: STRIKER Keyboard PRO -->
+          <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="h-full flex flex-col justify-between bg-surface-card border border-outline rounded p-gutter-md hover:border-primary hover:shadow-[0_0_24px_rgba(139,92,246,0.35)] transition-colors duration-state-change ease-state-change">
+            <div class="flex flex-col gap-gutter-md">
+              <div class="relative w-full h-48 rounded-sm bg-surface overflow-hidden">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrB2sa182JyslVLpI9o3epORiTKxZGhcUMdLUcZdLg14BoYTHeqwponj1NKrYEIAoexeLvImdIkO7JQxT1CW4CTeicYTutBZViVFlvcbnfiScUvDZbWMjd-Xn4GJI5c0rw9XZlb6sKYfh_XvvQEHOxawkC5HADf1OWyJPfZpPkzLHqNbgd12xO_XOSNf-48lHjxvXR8in2HrsuWg4r-jn_qc8cNQpkrUfv-JwS74jNVt0OfnTcKrMQw9gdbhGS9Vtw" alt="STRIKER Keyboard PRO" class="w-full h-full object-cover object-center">
+                <span data-component-id="badge-category" data-component-type="badge" data-component-variant="status" class="absolute top-gutter-sm left-gutter-sm px-gutter-sm py-gutter-xs rounded-xs bg-surface/80 text-secondary font-caption text-caption">
+                  <span data-design-text-token="caption">Keyboard</span>
+                </span>
+              </div>
+              <div class="flex flex-col gap-gutter-sm">
+                <h3 class="font-title text-title-sm text-on-surface-card" data-design-text-token="title-sm">STRIKER Keyboard PRO</h3>
+                <p class="font-title text-title-md text-on-surface-card tabular-nums" data-design-text-token="title-md">$229</p>
+                <div class="flex flex-wrap items-center gap-gutter-sm">
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">Cherry MX</span>
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">Wireless</span>
+                </div>
+                <div class="flex items-center gap-gutter-xs pt-gutter-xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                  <span class="font-caption text-caption text-secondary" data-design-text-token="caption">In stock</span>
+                </div>
+              </div>
+            </div>
+            <footer class="mt-gutter-md">
+              <button type="button" data-add-to-cart data-component-id="button-primary-full" data-component-type="button" data-component-variant="primary" class="w-full inline-flex items-center justify-center h-10 px-gutter-md rounded bg-gradient-to-r from-primary-dark to-primary-deep text-on-primary-dark font-headline text-label-lg uppercase hover:from-primary hover:to-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+                <span data-design-text-token="label-lg">Add to Cart</span>
+              </button>
+            </footer>
+          </article>
+
+          <!-- Product 6: SWIFT Mouse Pro -->
+          <article data-component-id="card-action" data-component-type="card" data-component-variant="action" class="h-full flex flex-col justify-between bg-surface-card border border-outline rounded p-gutter-md hover:border-primary hover:shadow-[0_0_24px_rgba(139,92,246,0.35)] transition-colors duration-state-change ease-state-change">
+            <div class="flex flex-col gap-gutter-md">
+              <div class="relative w-full h-48 rounded-sm bg-surface overflow-hidden">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrBJ6XGSROStiJHr84Us_sSsAmDBg1lbSxvnO8ZBZFzl-tpRxPalz7GprGg6p6GpUkA_I61-QTwF_smipjA3X-uU0X7mw5BzMCpkxSuEMwdPwAANZHnqks6MhzSG9sy-p3h6vVFZgiOoMyBOMzRxE4lmpFCYDzjRg5UKE7zdYC2-xw5L76JYLVf84bSMFKk4hZUaLcwxuAL0bQQM-_SoOsR1qLRCXvFfq2coFTIOcQn5Uam-j1GhHqdfOd0" alt="SWIFT Mouse Pro" class="w-full h-full object-cover object-center">
+                <span data-component-id="badge-category" data-component-type="badge" data-component-variant="status" class="absolute top-gutter-sm left-gutter-sm px-gutter-sm py-gutter-xs rounded-xs bg-surface/80 text-secondary font-caption text-caption">
+                  <span data-design-text-token="caption">Mouse</span>
+                </span>
+              </div>
+              <div class="flex flex-col gap-gutter-sm">
+                <h3 class="font-title text-title-sm text-on-surface-card" data-design-text-token="title-sm">SWIFT Mouse Pro</h3>
+                <p class="font-title text-title-md text-on-surface-card tabular-nums" data-design-text-token="title-md">$89</p>
+                <div class="flex flex-wrap items-center gap-gutter-sm">
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">25600 DPI</span>
+                  <span data-component-id="badge-spec" data-component-type="badge" data-component-variant="status" class="px-gutter-sm py-gutter-xs rounded-xs bg-primary-tint text-secondary font-caption text-caption" data-design-text-token="caption">Wireless</span>
+                </div>
+                <div class="flex items-center gap-gutter-xs pt-gutter-xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0" aria-hidden="true"></span>
+                  <span class="font-caption text-caption text-secondary" data-design-text-token="caption">In stock</span>
+                </div>
+              </div>
+            </div>
+            <footer class="mt-gutter-md">
+              <button type="button" data-add-to-cart data-component-id="button-primary-full" data-component-type="button" data-component-variant="primary" class="w-full inline-flex items-center justify-center h-10 px-gutter-md rounded bg-gradient-to-r from-primary-dark to-primary-deep text-on-primary-dark font-headline text-label-lg uppercase hover:from-primary hover:to-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary transition-colors duration-state-change ease-state-change">
+                <span data-design-text-token="label-lg">Add to Cart</span>
+              </button>
+            </footer>
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-footer text-on-surface-footer">
+      <!-- 1px Purple-to-Cyan Gradient Top Line -->
+      <div class="h-px w-full bg-gradient-to-r from-primary to-secondary"></div>
+
+      <div class="max-w-[1440px] mx-auto px-gutter-md lg:px-page-margin py-section">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter-xl pb-gutter-xl border-b border-outline">
+          <!-- Column 1: Shop -->
+          <div class="flex flex-col gap-gutter-sm">
+            <h3 class="font-label text-label-md text-on-surface mb-gutter-xs" data-design-text-token="label-md">Shop</h3>
+            <a href="#products" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">Laptops</a>
+            <a href="#products" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">PCs</a>
+            <a href="#products" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">Monitors</a>
+            <a href="#products" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">Keyboards</a>
+            <a href="#products" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">Mice</a>
+          </div>
+
+          <!-- Column 2: Browse -->
+          <div class="flex flex-col gap-gutter-sm">
+            <h3 class="font-label text-label-md text-on-surface mb-gutter-xs" data-design-text-token="label-md">Browse</h3>
+            <a href="#categories" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">Gaming Laptops</a>
+            <a href="#products" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">Ultrabooks</a>
+            <a href="#categories" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">Desktop PCs</a>
+            <a href="#products" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">All Products</a>
+          </div>
+
+          <!-- Column 3: Information -->
+          <div class="flex flex-col gap-gutter-sm">
+            <h3 class="font-label text-label-md text-on-surface mb-gutter-xs" data-design-text-token="label-md">Information</h3>
+            <a href="#" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">About</a>
+            <a href="#" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">Privacy Policy</a>
+          </div>
+
+          <!-- Column 4: Contact -->
+          <div class="flex flex-col gap-gutter-sm">
+            <h3 class="font-label text-label-md text-on-surface mb-gutter-xs" data-design-text-token="label-md">Contact</h3>
+            <a href="#" class="font-label text-label-sm text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change" data-design-text-token="label-sm">Contact Support</a>
+            <div class="flex items-center gap-gutter-md pt-gutter-xs">
+              <a href="#" aria-label="PCShop on YouTube" class="text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true">smart_display</span>
+              </a>
+              <a href="#" aria-label="PCShop Community Forum" class="text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true">forum</span>
+              </a>
+              <a href="#" aria-label="Share PCShop" class="text-on-surface-variant hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-xs transition-colors duration-state-change">
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true">public</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Copyright Bar -->
+        <div class="pt-gutter-lg flex flex-col sm:flex-row items-center justify-between gap-gutter-sm">
+          <p class="font-caption text-caption text-on-surface-variant" data-design-text-token="caption">© 2026 PCShop Hardware. All rights reserved.</p>
+          <p class="font-caption text-caption text-on-surface-variant" data-design-text-token="caption">Performance Hardware Store</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var switcherBtn = document.getElementById('theme-switcher-btn');
+      var switcherMenu = document.getElementById('theme-switcher-menu');
+      if (switcherBtn && switcherMenu) {
+        switcherBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var isHidden = switcherMenu.classList.contains('hidden');
+          switcherMenu.classList.toggle('hidden', !isHidden);
+          switcherBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+        });
+        document.addEventListener('click', function () {
+          switcherMenu.classList.add('hidden');
+          switcherBtn.setAttribute('aria-expanded', 'false');
+        });
+      }
+
+      var cartCount = 2;
+      var cartText = document.getElementById('cart-count-text');
+      var cartBtn = document.getElementById('cart-button');
+      var addButtons = document.querySelectorAll('[data-add-to-cart]');
+      addButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          cartCount += 1;
+          if (cartText) cartText.textContent = String(cartCount);
+          if (cartBtn) cartBtn.setAttribute('aria-label', 'Shopping cart, ' + cartCount + ' items');
+          var label = btn.querySelector('span');
+          if (label) {
+            var prev = label.textContent;
+            label.textContent = 'Added';
+            setTimeout(function () {
+              label.textContent = prev;
+            }, 900);
+          }
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>

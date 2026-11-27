@@ -10,7 +10,7 @@ This directory will contain the generated design outputs for the **Modern Techno
 | `v1-prompt.md` | Exact prompt used for v1 (copy of `../professional-prompt.md`) | Not yet generated |
 | `v2-generated.png` | Revised mockup, if v1 required changes | Not yet generated |
 | `v2-revision-prompt.md` | Revision prompt used for v2 | Not yet generated |
-| `v1-DESIGN.md` | Design spec exported from Stitch, if available | Not yet generated |
+| `DESIGN.md` | Design spec exported from Stitch, if available | Not yet generated |
 | `v1-export.html` | Generated HTML/CSS from Stitch, if available | Not yet generated |
 | `review-notes.md` | Human review scores and notes (see `../review-checklist.md`) | Not yet generated |
 
