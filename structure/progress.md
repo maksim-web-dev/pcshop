@@ -15,7 +15,9 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Task 1.3.1 | prompt05 | Playwright MCP integration + visual reference screenshot collection | **Awaiting human review** |
 | Task 1.4.1 | prompt06 | Prepare Google Stitch HomePage generation (3 prompts + review checklist + usage guide) | **Completed** |
 | Task 1.4.1 (rev) | prompt07 | Stitch prompt corrections: shared mock data, scope cleanup, review criteria update | **Completed** |
-| Task 1.4.2 | — | Manual Google Stitch generation (run by human) | **Pending — prompts ready** |
+| Task 1.4.2 | prompt08 | Manual Google Stitch generation — 3 themes generated | **Completed** |
+| Task 1.4.3 | prompt09 | AI design review + revision prompts prepared | **Completed** |
+| Task 1.4.4 | — | Manual V2 refinement in Stitch (run by human) | **Pending — revision prompts ready** |
 
 ### Task 1.2 — Review Findings Addressed (in Task 1.3)
 
@@ -35,7 +37,7 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 |------|-------------|--------|
 | Step 1 | Define visual requirements for all three themes | **Reviewed — minor findings addressed** |
 | Step 2 | Collect visual references (moodboards) | **Accepted as sufficient** (9 verified refs; original 24-ref target not met; shortlist accepted for initial generation) |
-| Step 3 | Generate HomePage concepts via Google Stitch | **Prompts ready** (3 corrected prompts; shared mock data; scope validated; human generation required) |
+| Step 3 | Generate HomePage concepts via Google Stitch | **V1 generated** (3 designs reviewed; revision prompts prepared; V2 pending human generation) |
 | Step 4 | Generate CatalogPage concepts | Pending |
 | Step 5 | Generate ProductPage concepts | Pending |
 | Step 6 | Define NotFoundPage design *(Google Stitch optional for this step)* | Pending |
@@ -76,9 +78,9 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 
 | Item | Blocks | Action required |
 |------|--------|----------------|
-| 9 references need human review (screenshots captured) | Design Step 3 final approval | Human reviews captured screenshots in `references/<theme>/screenshots/`; approves usable refs |
-| 6 references inaccessible (404/Cloudflare) | Full 8-reference-per-theme target | Human captures manually: B&H Photo, Micro Center, Best Buy Canada, Sony consumer electronics, Corsair catalog, Apple accessories |
-| Theme visual specifications not yet human-approved | All subsequent design steps | Human approval of colors, fonts, spacing decisions in `themes/*.md` |
+| V1 designs require revision before approval | Design Step 3 final approval; implementation start | Human runs V2 revision prompts in Stitch; reviews V2 against review-checklist.md |
+| Professional: "fast delivery" in hero | Professional V2 approval | Fixed in revision-v2-prompt.md — must verify removal in generated V2 |
+| Gaming: footer link contrast (est. 2.5:1) | Gaming V2 approval | Fixed in revision-v2-prompt.md — must verify contrast fix in generated V2 |
 | Playwright MCP browser config needs new session | MCP tools in future sessions | `.mcp.json` updated to `--browser firefox`; takes effect on next Claude Code restart |
 
 ---
