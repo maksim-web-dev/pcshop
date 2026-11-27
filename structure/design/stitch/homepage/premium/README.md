@@ -1,25 +1,48 @@
 # PCShop HomePage — Premium Minimalism — Stitch Output
 
-This directory will contain the generated design outputs for the **Premium Minimalism** homepage concept.
+Design outputs for the **Premium Minimalism** homepage concept. V1 and V2 have been generated.
 
-## Expected Contents
+## Artifact Inventory
 
 | File | Description | Status |
 |------|-------------|--------|
-| `v1-generated.png` | Original generated mockup from Google Stitch | Not yet generated |
-| `v1-prompt.md` | Exact prompt used for v1 (copy of `../premium-prompt.md`) | Not yet generated |
-| `v2-generated.png` | Revised mockup, if v1 required changes | Not yet generated |
-| `v2-revision-prompt.md` | Revision prompt used for v2 | Not yet generated |
-| `v1-DESIGN.md` | Design spec exported from Stitch, if available | Not yet generated |
-| `v1-export.html` | Generated HTML/CSS from Stitch, if available | Not yet generated |
-| `review-notes.md` | Human review scores and notes (see `../review-checklist.md`) | Not yet generated |
+| `v1-generated.png` | V1 mockup from Google Stitch (383×751 px) | ✓ Generated |
+| `v1-code.html` | V1 generated HTML from Stitch | ✓ Generated |
+| `v1-prompt.md` | Exact prompt used for V1 generation | ✓ Generated |
+| `DESIGN.md` | Design system spec exported from Stitch | ✓ Generated |
+| `revision-v2-prompt.md` | Targeted revision prompt prepared for V2 | ✓ Prepared |
+| `v2-generated.png` | V2 revised mockup (400×747 px) | ✓ Generated |
+| `v2-code.html` | V2 generated HTML from Stitch | ✓ Generated |
+| `v2-prompt.md` | Exact prompt used for V2 generation | ✓ Generated |
+| `approved-design-guidance.md` | Implementation guidance derived from V2 | ✓ Created |
 
-## Generation Instructions
+## Current Reference Design
 
-1. Open `../premium-prompt.md` and copy the full prompt text.
-2. Paste into Google Stitch.
-3. Attach reference images `REF-P02` and `REF-P05` from `structure/design/references/premium/screenshots/` if image attachment is supported.
-4. Save all outputs to this directory.
-5. Complete `../review-checklist.md` after generation.
+**Use `v2-generated.png` and `v2-code.html` as the reference for React implementation.**  
+V1 artifacts are preserved for history and comparison — do not delete.
 
-Do not create placeholder images or fake exports.
+## V1 → V2 Changes
+
+| Change | V1 | V2 |
+|--------|----|----|
+| Product grid | 2×2 (4 products) | 3-column 3×2 (6 products) |
+| Availability indicator | Absent | "In stock" in `#5C5C5C` on all cards |
+| Category card CTA | No affordance | "Browse →" link on each card |
+| Score | 53/65 | 55/65 |
+
+## Approval Status
+
+**Conditionally approved (V2)** — awaiting project owner sign-off.
+
+All minimum score thresholds met (all visual quality dimensions ≥4, accessibility ≥4). V3 not required.
+
+## Remaining Corrections for Implementation
+
+| Issue | Required action |
+|-------|----------------|
+| STRIKER badge text | Use "Cherry MX" (not "Mechanical") — source: `mock-products.md` |
+| SWIFT Mouse Pro badge | Use "25600 DPI", "Wireless" (not "26K DPI", "58g") — source: `mock-products.md` |
+| Product images | Replace Stitch mock images with backend `imageUrls[]` API field |
+| Product count | Confirm: 4 (original editorial) or 6 (V2 result) — human decision pending |
+
+See `approved-design-guidance.md` for complete implementation guidance.

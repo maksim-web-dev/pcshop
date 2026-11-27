@@ -1,25 +1,48 @@
 # PCShop HomePage — Gaming & Technology — Stitch Output
 
-This directory will contain the generated design outputs for the **Gaming & Technology** homepage concept.
+Design outputs for the **Gaming & Technology** homepage concept. V1 and V2 have been generated.
 
-## Expected Contents
+## Artifact Inventory
 
 | File | Description | Status |
 |------|-------------|--------|
-| `v1-generated.png` | Original generated mockup from Google Stitch | Not yet generated |
-| `v1-prompt.md` | Exact prompt used for v1 (copy of `../gaming-prompt.md`) | Not yet generated |
-| `v2-generated.png` | Revised mockup, if v1 required changes | Not yet generated |
-| `v2-revision-prompt.md` | Revision prompt used for v2 | Not yet generated |
-| `v1-DESIGN.md` | Design spec exported from Stitch, if available | Not yet generated |
-| `v1-export.html` | Generated HTML/CSS from Stitch, if available | Not yet generated |
-| `review-notes.md` | Human review scores and notes (see `../review-checklist.md`) | Not yet generated |
+| `v1-generated.png` | V1 mockup from Google Stitch (462×747 px) | ✓ Generated |
+| `v1-code.html` | V1 generated HTML from Stitch | ✓ Generated |
+| `v1-prompt.md` | Exact prompt used for V1 generation | ✓ Generated |
+| `DESIGN.md` | Design system spec exported from Stitch | ✓ Generated |
+| `revision-v2-prompt.md` | Targeted revision prompt prepared for V2 | ✓ Prepared |
+| `v2-generated.png` | V2 revised mockup (467×756 px) | ✓ Generated |
+| `v2-code.html` | V2 generated HTML from Stitch | ✓ Generated |
+| `v2-prompt.md` | Exact prompt used for V2 generation | ✓ Generated |
+| `approved-design-guidance.md` | Implementation guidance derived from V2 | ✓ Created |
 
-## Generation Instructions
+## Current Reference Design
 
-1. Open `../gaming-prompt.md` and copy the full prompt text.
-2. Paste into Google Stitch.
-3. Attach reference images `REF-G01`, `REF-G04`, and `REF-G06` from `structure/design/references/gaming/screenshots/` if image attachment is supported.
-4. Save all outputs to this directory.
-5. Complete `../review-checklist.md` after generation.
+**Use `v2-generated.png` and `v2-code.html` as the reference for React implementation.**  
+V1 artifacts are preserved for history and comparison — do not delete.
 
-Do not create placeholder images or fake exports.
+## V1 → V2 Changes
+
+| Change | V1 | V2 |
+|--------|----|----|
+| Product grid | 4-col (4+2 unbalanced) | 3-col 3+3 balanced |
+| Availability indicator | Absent | "In stock" in `#22D3EE` cyan on all 6 cards |
+| Footer link contrast | `#60607A` on `#070708` ≈ 2.5:1 ⚠ | `#A0A0C0` on `#070708` ≈ 7.1:1 ✓ |
+| Score | 57/65 | 60/65 |
+
+## Approval Status
+
+**Conditionally approved (V2)** — awaiting project owner sign-off.
+
+All minimum score thresholds met (all visual quality dimensions ≥4, accessibility ≥4). V3 not required.
+
+## Remaining Corrections for Implementation
+
+| Issue | Required action |
+|-------|----------------|
+| Product images | Replace Stitch mock images with backend `imageUrls[]` API field (use dark studio-lit photography) |
+| Availability color | Must use `#22D3EE` cyan — green is forbidden in this theme |
+| Footer links | Must use `#A0A0C0` or brighter on `#070708` background — never revert to `#60607A` |
+| Glow effects | Card hover glow: `box-shadow: 0 0 24px rgba(139, 92, 246, 0.35)` — standard CSS, achievable in Tailwind |
+
+See `approved-design-guidance.md` for complete implementation guidance.

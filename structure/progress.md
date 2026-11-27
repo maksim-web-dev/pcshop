@@ -17,7 +17,8 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 | Task 1.4.1 (rev) | prompt07 | Stitch prompt corrections: shared mock data, scope cleanup, review criteria update | **Completed** |
 | Task 1.4.2 | prompt08 | Manual Google Stitch generation — 3 themes generated | **Completed** |
 | Task 1.4.3 | prompt09 | AI design review + revision prompts prepared | **Completed** |
-| Task 1.4.4 | — | Manual V2 refinement in Stitch (run by human) | **Pending — revision prompts ready** |
+| Task 1.4.4 | prompt10 | Manual V2 refinement in Stitch (run by human) | **Completed** |
+| Task 1.4.5 | prompt11 | Final review, approved-design-guidance files, HomePage baseline | **Completed** |
 
 ### Task 1.2 — Review Findings Addressed (in Task 1.3)
 
@@ -37,7 +38,7 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 |------|-------------|--------|
 | Step 1 | Define visual requirements for all three themes | **Reviewed — minor findings addressed** |
 | Step 2 | Collect visual references (moodboards) | **Accepted as sufficient** (9 verified refs; original 24-ref target not met; shortlist accepted for initial generation) |
-| Step 3 | Generate HomePage concepts via Google Stitch | **V1 generated** (3 designs reviewed; revision prompts prepared; V2 pending human generation) |
+| Step 3 | Generate HomePage concepts via Google Stitch | **V2 conditionally approved** — awaiting human sign-off; approved-design-guidance prepared; HomePage baseline created |
 | Step 4 | Generate CatalogPage concepts | Pending |
 | Step 5 | Generate ProductPage concepts | Pending |
 | Step 6 | Define NotFoundPage design *(Google Stitch optional for this step)* | Pending |
@@ -78,9 +79,8 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 
 | Item | Blocks | Action required |
 |------|--------|----------------|
-| V1 designs require revision before approval | Design Step 3 final approval; implementation start | Human runs V2 revision prompts in Stitch; reviews V2 against review-checklist.md |
-| Professional: "fast delivery" in hero | Professional V2 approval | Fixed in revision-v2-prompt.md — must verify removal in generated V2 |
-| Gaming: footer link contrast (est. 2.5:1) | Gaming V2 approval | Fixed in revision-v2-prompt.md — must verify contrast fix in generated V2 |
+| Human design approval of V2 designs | Design Step 12 final sign-off; React implementation start | Review `review-v2.md` and `approved-design-guidance.md` for each theme; sign off or request V3 |
+| Premium product count decision (4 vs 6) | Implementation specification | Project owner decides: editorial 4 or functional parity 6 (default: 6 per V2 result) |
 | Playwright MCP browser config needs new session | MCP tools in future sessions | `.mcp.json` updated to `--browser firefox`; takes effect on next Claude Code restart |
 
 ---
@@ -91,6 +91,9 @@ Prompt numbers (prompt01, prompt02, ...) are independent of Design Step numbers 
 - Task 1.3 / Design Step 2 candidates: `structure/design/references/<theme>/moodboard.md`
 - Reference comparison: `structure/design/references/comparison.md`
 - Usage guide for Google Stitch: `structure/design/references/README.md`
+- HomePage V2 approved-design-guidance: `structure/design/stitch/homepage/{theme}/approved-design-guidance.md`
+- HomePage shared baseline: `structure/design/pages/home.md`
+- V2 review scores and evidence: `structure/design/stitch/homepage/review-v2.md`
 - All proposed color, font, and spacing values remain **draft — requiring human approval**
-- Google Stitch generation (Steps 3–7) blocked until: (a) references verified, (b) theme specs approved
+- Design token global definition (Step 9) pending — do not finalize CSS custom properties yet
 - No frontend code has been written
